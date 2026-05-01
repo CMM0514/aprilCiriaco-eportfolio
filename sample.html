@@ -1,13 +1,260 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OJT Introduction</title>
-  <link rel="stylesheet" href="assets/style.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Portfolio</title>
 
-body>
+    <style>
+      * {
+        margin: 0;
+        
+        box-sizing: border-box;
+        font-family: "Inter", Arial, sans-serif;
+      }
+  
+
+      body {
+        min-height: 10vh;
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(245, 158, 11, 0.22),
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at bottom left,
+            rgba(59, 130, 246, 0.12),
+            transparent 35%
+          ),
+          #0b0f1a;
+        color: #e5e7eb;
+      }
+
+      .intro-page {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 0 15px;
+      }
+
+      .intro-hero {
+        text-align: center;
+        margin-bottom: 32px;
+        padding-top: 0;
+      }
+
+      .section-label {
+        color: #f59e0b;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+      .intro-hero h1 {
+        margin-top: 8px;
+        font-size: clamp(36px, 5vw, 52px);
+        line-height: 1.1;
+        margin-bottom: 14px;
+      }
+
+      .intro-hero p {
+        max-width: 650px;
+        margin: 0 auto;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #cbd5e1;
+      }
+
+      .intro-tabs {
+        margin-top: -5px;
+      }
+
+      .intro-tabs input {
+        display: none;
+      }
+
+      .tab-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+      }
+
+      .tab-buttons label {
+        padding: 14px 24px;
+        border-radius: 50px;
+        cursor: pointer;
+        color: #cbd5e1;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        transition: 0.3s ease;
+        font-weight: 700;
+      }
+
+      .tab-buttons label:hover {
+        color: #fff;
+        transform: translateY(-3px);
+        border-color: rgba(245, 158, 11, 0.5);
+      }
+
+      #tab-a:checked ~ .tab-buttons label[for="tab-a"],
+      #tab-b:checked ~ .tab-buttons label[for="tab-b"],
+      #tab-c:checked ~ .tab-buttons label[for="tab-c"] {
+        background: #f59e0b;
+        color: #0b0f1a;
+        box-shadow: 0 14px 35px rgba(245, 158, 11, 0.3);
+      }
+
+      .tab-content {
+        display: none;
+        animation: fadeUp 0.45s ease;
+      }
+
+      #tab-a:checked ~ .content-a,
+      #tab-b:checked ~ .content-b,
+      #tab-c:checked ~ .content-c {
+        display: block;
+      }
+
+      .intro-card {
+        position: relative;
+        overflow: hidden;
+        padding: 32px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+      }
+
+      .intro-card::before {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        top: -80px;
+        right: -80px;
+        background: rgba(245, 158, 11, 0.18);
+        border-radius: 50%;
+        filter: blur(25px);
+      }
+
+      .intro-card h2 {
+        position: relative;
+        font-size: clamp(28px, 4vw, 42px);
+        margin-bottom: 24px;
+        color: #fff;
+      }
+
+      .intro-card p {
+        position: relative;
+        color: #d1d5db;
+        font-size: 16px;
+        line-height: 1.9;
+        margin-bottom: 18px;
+      }
+
+      .objectives-list {
+        position: relative;
+        list-style: none;
+        display: grid;
+        gap: 16px;
+      }
+
+      .objectives-list li {
+        padding: 18px 20px;
+        padding-left: 55px;
+        border-radius: 18px;
+        color: #d1d5db;
+        line-height: 1.7;
+        background: rgba(255, 255, 255, 0.055);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+
+      .objectives-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 20px;
+        top: 18px;
+        color: #f59e0b;
+        font-weight: 900;
+      }
+
+      .ojt-table {
+        position: relative;
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 20px;
+      }
+
+      .ojt-table th,
+      .ojt-table td {
+        padding: 18px 20px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .ojt-table th {
+        width: 35%;
+        color: #f59e0b;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .ojt-table td {
+        color: #e5e7eb;
+      }
+
+      .table-title td {
+        text-align: center;
+        font-weight: 800;
+        color: #0b0f1a;
+        background: #f59e0b;
+        letter-spacing: 1px;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .intro-page {
+          width: 92%;
+          padding-top: 60px;
+        }
+
+        .intro-card {
+          padding: 28px;
+        }
+
+        .tab-buttons {
+          flex-direction: column;
+        }
+
+        .tab-buttons label {
+          text-align: center;
+        }
+
+        .ojt-table th,
+        .ojt-table td {
+          display: block;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
     <div id="nav-placeholder"></div>
 
     <main class="intro-page">
@@ -184,3 +431,4 @@ body>
     </script>
   </body>
 </html>
+                              
