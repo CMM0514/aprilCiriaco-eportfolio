@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OJT Introduction</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <div id="nav-placeholder"></div>
+
+  <div class="container intro-page">
+    <div class="section-header">
+      <h1 span class="section-label">Introduction </h1></span>
+
+      <p>
+        This section presents the importance, objectives, and details of my internship experience.
+      </p>
+    </div>
+
+    <div class="intro-tabs">
+      <input type="radio" name="intro" id="tab-a" checked>
+      <input type="radio" name="intro" id="tab-b">
+      <input type="radio" name="intro" id="tab-c">
+
+      <div class="tab-buttons">
+        <label for="tab-a">A. Importance</label>
+        <label for="tab-b">B. Objectives</label>
+        <label for="tab-c">C. Time & Place</label>
+      </div>
+
+      <div class="tab-content content-a">
+        <section class="intro-card">
+          <h2>A. Importance of Internship</h2>
+
+          <p>
+            On-the-job training (OJT) or internship is an important part of being a college student, especially for fourth-year students. It helps students experience real work and connect what they learned in school to actual job situations. Through this, students understand how a workplace really works.
+          </p>
+
+          <p>
+            Internship also helps students learn new skills by doing real tasks. It improves their responsibility, discipline, and ability to follow instructions. It also teaches them how to handle challenges and work in a professional environment.
+          </p>
+
+          <p>
+            It also helps students improve their communication, teamwork, and time management skills. By working with other people, they gain confidence and learn how to deal with different situations at work.
+          </p>
+
+          <p>
+            Overall, OJT is very important because it prepares students for their future jobs. It gives them experience, builds their confidence, and helps them become more ready for their chosen career after graduation.
+          </p>
+        </section>
+      </div>
+
+      <div class="tab-content content-b">
+        <section class="intro-card">
+          <h2>B. Objectives of Internship</h2>
+
+          <p>The internship aims to:</p>
+
+          <ul class="objectives-list">
+            <li>Expose students to real workplace environments where they can apply the knowledge and skills they learned in school.</li>
+            <li>Develop important work values such as responsibility, discipline, teamwork, and a positive attitude toward work and learning.</li>
+            <li>Enhance students' practical skills and understanding of their chosen field through hands-on tasks and actual work experiences.</li>
+            <li>Build students' confidence and independence by allowing them to perform real job-related activities and handle different work situations.</li>
+            <li>Prepare students for their future careers by making them more competent, ready, and adaptable in a professional setting.</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="tab-content content-c">
+        <section class="intro-card">
+          <h2>C. Time and Place of Internship</h2>
+
+          <table class="ojt-table">
+            <tr>
+              <th>Agency</th>
+              <td>Occidental Mindoro Electric Cooperative, Inc.</td>
+            </tr>
+            <tr>
+              <th>Address</th>
+              <td>M.H. Del Pilar Street, Brgy. 6, San Jose, Occidental Mindoro</td>
+            </tr>
+            <tr>
+              <th>Duration</th>
+              <td>486 Hours</td>
+            </tr>
+            <tr>
+              <th>Date Started</th>
+              <td>February 2, 2026</td>
+            </tr>
+            <tr>
+              <th>Date Ended</th>
+              <td>April 30, 2026</td>
+            </tr>
+
+            <tr class="table-title">
+              <td colspan="2">Morning Schedule</td>
+            </tr>
+            <tr>
+              <th>Time of Arrival</th>
+              <td>8:00 AM — Monday to Friday</td>
+            </tr>
+            <tr>
+              <th>Time of Departure</th>
+              <td>12:00 PM — Monday to Friday</td>
+            </tr>
+
+            <tr class="table-title">
+              <td colspan="2">Afternoon Schedule</td>
+            </tr>
+            <tr>
+              <th>Time of Arrival</th>
+              <td>1:00 PM — Monday to Friday</td>
+            </tr>
+            <tr>
+              <th>Time of Departure</th>
+              <td>5:00 PM — Monday to Friday</td>
+            </tr>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    fetch("nav.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("nav-placeholder").innerHTML = data;
+      });
+
+    function activateTabFromHash() {
+      const hash = window.location.hash;
+
+      if (hash === "#tab-a" || hash === "#tab-b" || hash === "#tab-c") {
+        const tab = document.querySelector(hash);
+        if (tab) tab.checked = true;
+      }
+    }
+
+    window.addEventListener("load", activateTabFromHash);
+    window.addEventListener("hashchange", activateTabFromHash);
+
+    document.querySelectorAll(".tab-buttons label").forEach(label => {
+      label.addEventListener("click", () => {
+        const id = label.getAttribute("for");
+        history.replaceState(null, null, "#" + id);
+      });
+    });
+  </script>
+</body>
+</html>

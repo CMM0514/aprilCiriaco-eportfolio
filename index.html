@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Hero Mockup</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Recent Work</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="socials">
+          <span>in</span>
+          <span>Be</span>
+          <span>🐦</span>
+        </div>
+      </nav>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-text">          <div class="hero-logos">
+            <img src="assets/omsc.png" alt="School Logo">
+            <img src="assets/cast.png" alt="Department Logo">
+            <img src="assets/omeco.png" alt="Agency Logo">
+            <img src="assets/Nea.png" alt="Company Logo">
+          </div>          <h1>APRIL MEA E. CIRIACO</h1>
+          <p>
+            A BSIT student currently in training, developing practical skills in web development and digital solutions.
+          </p>
+          <a href="#" class="hero-btn">Let’s Get Started →</a>
+        </div>
+
+        <div class="hero-image">
+          <div class="profile-mockup">
+            <div class="profile-mask">
+              <img src="assets/profile.png" alt="Profile" />
+            </div>
+
+            <img class="profile-head" src="assets/profile.png" alt="Profile" />
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <script>
+      // Smooth scroll placeholder
+      document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          alert("Navigation clicked!");
+        });
+      });
+    </script>
+  </body>
+</html>
+
