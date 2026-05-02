@@ -1,130 +1,396 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Company Profile</title>
-  <link rel="stylesheet" href="assets/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Profile</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- NAVBAR -->
+    <div id="nav-placeholder"></div>
 
-  <!-- NAVBAR -->
-  <div id="nav-placeholder"></div>
+    <main class="intro-page">
+      <!-- HERO -->
+      <section class="intro-hero">
+        <h1 class="intro-title">II. COMPANY PROFILE</h1>
+        <p>
+          This section presents the Nature, Vision/ Mission, History &
+          Background of the Agency, Organizational Chart of the company where I
+          completed my internship.
+        </p>
+      </section>
 
-  <div class="container intro-page">
+      <!-- TABS -->
+      <section class="intro-tabs">
+        <!-- RADIO -->
+        <input type="radio" name="company" id="tab-a" checked />
+        <input type="radio" name="company" id="tab-b" />
+        <input type="radio" name="company" id="tab-c" />
+        <input type="radio" name="company" id="tab-d" />
 
-    <!-- HEADER -->
-    <div class="section-header">
-      <span class="section-label">Company Profile</span>
-      <h1>About the Agency</h1>
-      <p>
-        This section presents the background, structure, and functions of the company where I completed my internship.
-      </p>
-    </div>
+        <!-- BUTTONS -->
+        <div class="tab-buttons">
+          <label for="tab-a">A. Nature of the Agency</label>
+          <label for="tab-b">B. Mission / Vision</label>
+          <label for="tab-c">C. History & Background of the Agency</label>
+          <label for="tab-d">D. Organizational Chart</label>
+        </div>
 
-    <!-- TABS -->
-    <div class="intro-tabs">
+        <!-- A NATURE OF THE AGENCY -->
+        <div class="tab-content content-a">
+          <section class="intro-card nature-card">
+            <h2 class="nature-title">A. Nature of the Agency</h2>
 
-      <input type="radio" name="company" id="tab-a" checked>
-      <input type="radio" name="company" id="tab-b">
-      <input type="radio" name="company" id="tab-c">
-      <input type="radio" name="company" id="tab-d">
+            <div class="nature-image">
+              <img src="assets/omeco.png" alt="OMECO Company Logo" />
+              <p class="image-caption">
+                Occidental Mindoro Electric Cooperative, Inc. (OMECO)
+              </p>
+            </div>
 
-      <!-- BUTTONS -->
-      <div class="tab-buttons">
-        <label for="tab-a">A. Nature</label>
-        <label for="tab-b">B. Mission/Vision</label>
-        <label for="tab-c">C. Structure</label>
-        <label for="tab-d">D. Services</label>
-      </div>
+            <div class="nature-grid">
+              <div class="nature-box">
+                <h3>Origins & Mandate</h3>
+                <ul>
+                  <li>
+                    <strong>1969:</strong> PD 269 created NEA to organize
+                    electric cooperatives, targeting total municipal
+                    electrification by 1987.
+                  </li>
+                  <li>
+                    <strong>1974:</strong> OMECO was organized through Atty.
+                    Eufrocino L. Ramos of PECT.
+                  </li>
+                </ul>
+              </div>
 
-      <!-- A -->
-      <div class="tab-content content-a">
-        <section class="intro-card">
-          <h2>A. Nature of the Agency</h2>
-          <p>
-            <!-- INSERT YOUR CONTENT HERE -->
-            The Occidental Mindoro Electric Cooperative, Inc. (OMECO) is a distribution utility that provides electricity to consumers within the province of Occidental Mindoro...
-          </p>
-        </section>
-      </div>
+              <div class="nature-box">
+                <h3>Early Operations</h3>
+                <ul>
+                  <li>
+                    <strong>March 1974:</strong> ₱6.9M initial loan signed with
+                    NEA; interim Board led by Dr. Rodrigo M. David.
+                  </li>
+                  <li>
+                    <strong>May 7, 1974:</strong> Took over San Jose Electric
+                    Company for ₱620,000 and started with 9 employees.
+                  </li>
+                  <li>
+                    <strong>1975:</strong> GM Engr. Alberto A. Guiang acquired
+                    two 350kw gensets; lines were built; 1st Electrification
+                    Week was held.
+                  </li>
+                </ul>
+              </div>
 
-      <!-- B -->
-      <div class="tab-content content-b">
-        <section class="intro-card">
-          <h2>B. Mission, Vision, Goals</h2>
+              <div class="nature-box">
+                <h3>Expansion & Projects</h3>
+                <ul>
+                  <li>
+                    <strong>1978:</strong> Main office moved to Pulang Lupa,
+                    Central.
+                  </li>
+                  <li>
+                    <strong>1980:</strong> Mamburao energized; bought Silahis
+                    Electric Company for ₱760,000.
+                  </li>
+                  <li>
+                    <strong>1981:</strong> Engr. Romeo V. Razo became GM to fix
+                    negative loan balance.
+                  </li>
+                  <li>
+                    <strong>Dendro Thermal Plant:</strong> First in Asia in
+                    Paclolo, Magsaysay; later failed due to plantation
+                    destruction.
+                  </li>
+                </ul>
+              </div>
 
-          <h3>Mission</h3>
-          <p><!-- YOUR TEXT --></p>
+              <div class="nature-box">
+                <h3>Financial Crisis & Recovery</h3>
+                <ul>
+                  <li>
+                    <strong>1983-1984:</strong> Near collapse, no NEA aid, wages
+                    unpaid.
+                  </li>
+                  <li>
+                    <strong>Dec. 25, 1983:</strong> Col. Zoilo M. Perez became
+                    GM; paid staff from personal funds and refused salary for 6
+                    months.
+                  </li>
+                  <li>
+                    <strong>March 3, 1984:</strong> Operations resumed;
+                    cooperative recovered through frugality. Perez was called
+                    “Wonder Lolo.”
+                  </li>
+                </ul>
+              </div>
 
-          <h3>Vision</h3>
-          <p><!-- YOUR TEXT --></p>
+              <div class="nature-box">
+                <h3>Achievements Under Col. Perez (1983-1995)</h3>
+                <ul>
+                  <li>
+                    <strong>Awards:</strong> Best Collection Efficiency 1989 &
+                    1991, Outstanding GM 1990; upgraded from Class D to Class A
+                    in 1992.
+                  </li>
+                </ul>
+              </div>
 
-          <h3>Goals</h3>
-          <ul class="objectives-list">
-            <li><!-- goal 1 --></li>
-            <li><!-- goal 2 --></li>
-          </ul>
-        </section>
-      </div>
+              <div class="nature-box">
+                <h3>Later Developments</h3>
+                <ul>
+                  <li>
+                    <strong>1995:</strong> Alex C. Labrador, first rank-and-file
+                    GM, took over.
+                  </li>
+                  <li>
+                    <strong>1996:</strong> Botasan, Monte Claro, and Sitio Cebu
+                    energized; IPC plant in Bubog went 24/7.
+                  </li>
+                  <li>
+                    <strong>1997:</strong> Members voted 444-104 to stay with
+                    NEA over CDA to keep tax exemptions.
+                  </li>
+                  <li><strong>1999:</strong> 25th anniversary celebrated.</li>
+                  <li>
+                    <strong>2000:</strong> Sports Fest held; focus stayed on
+                    quality service for remote barrios.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
 
-      <!-- C -->
-      <div class="tab-content content-c">
-        <section class="intro-card">
-          <h2>C. Organizational Structure</h2>
+        <!-- B MISSION / VISION -->
+        <div class="tab-content content-b">
+          <div class="mission-vision-grid">
+            <!-- MISSION -->
+            <section class="intro-card premium-card mission-card">
+              <div class="card-icon">🎯</div>
+              <h2>Mission</h2>
+              <p>
+                A distribution utility delivering service in a socially
+                responsible manner for the improvement of the quality of life of
+                the people of mainland Occidental Mindoro.
+              </p>
+            </section>
 
-          <p>
-            The organization is composed of different departments responsible for operations, administration, and customer service.
-          </p>
+            <!-- VISION -->
+            <section class="intro-card premium-card vision-card">
+              <div class="card-icon">👁</div>
+              <h2>Vision</h2>
+              <p>
+                To be financially stable electric cooperative providing quality,
+                reliable and sustainable electric service using word class
+                state-of-the-art and cost-effective systems and facilities
+                operated by highly competent and motivated officers and
+                employees.
+              </p>
+            </section>
+          </div>
+        </div>
+        <!-- C -->
+        <div class="tab-content content-c">
+          <section class="intro-card history-full">
+            <h2 class="history-title">C. History of the Agency</h2>
 
-          <!-- OPTIONAL IMAGE -->
-          <img src="assets/org-chart.png" alt="Organization Chart" class="org-img">
-        </section>
-      </div>
+            <p>
+              OMECO, or Occidental Mindoro Electric Cooperative, Inc., was
+              organized in 1974 through the initiative of Atty. Eufrocino L.
+              Ramos under Presidential Decree No. 269, which created the
+              National Electrification Administration (NEA) in 1969 to oversee
+              rural electrification nationwide. With an initial ₱6.9 million
+              loan from NEA in March 1974, OMECO’s interim board headed by Dr.
+              Rodrigo M. David purchased the San Jose Electric Company for
+              ₱620,000 and formally took over operations on May 7, 1974.
+            </p>
 
-      <!-- D -->
-      <div class="tab-content content-d">
-        <section class="intro-card">
-          <h2>D. Services / Functions</h2>
+            <p>
+              Under its first General Manager, Engr. Alberto A. Guiang, the
+              cooperative expanded from just nine employees, acquired two 350kw
+              generators, built transmission and distribution lines, and
+              launched aggressive membership drives. Public awareness efforts
+              included the first Electrification Week in 1975 and annual
+              membership meetings that encouraged community involvement through
+              the bayanihan system.
+            </p>
 
-          <ul class="objectives-list">
-            <li>Provide electricity distribution</li>
-            <li>Maintain electrical infrastructure</li>
-            <li>Assist customers with billing and service</li>
-            <li>Ensure safety and compliance</li>
-          </ul>
-        </section>
-      </div>
+            <p>
+              Through the late 1970s and 1980s, OMECO continued expanding its
+              coverage, energizing Mamburao in 1980 and acquiring Silahis
+              Electric Company that same year. The cooperative built its main
+              office in Pulang Lupa, Central in 1978 and experimented with
+              projects like the Dendro Thermal Plant in Paclolo, Magsaysay—the
+              first of its kind in Asia—though the Ipil-Ipil plantation for fuel
+              was later destroyed.
+            </p>
 
-    </div>
+            <p>
+              By December 1983, OMECO faced a severe financial crisis with no
+              aid from NEA and unpaid wages. Col. Zoilo M. Perez (Ret.) took
+              over as General Manager, paying employees from his own funds and
+              forgoing his salary for six months. Through strict frugality and
+              employee cooperation, operations resumed in March 1984 and the
+              cooperative eventually recovered, earning Perez the nickname
+              “Wonder Lolo” and multiple awards for collection efficiency and
+              management.
+            </p>
 
-  </div>
+            <p>
+              In 1995, Alex C. Labrador became the first rank-and-file employee
+              to rise to General Manager, continuing energization efforts in
+              remote areas like Botasan, Monte Claro, and Sitio Cebu in 1996. A
+              major policy debate arose in 1997 over whether to register with
+              the Cooperative Development Authority (CDA) or remain under NEA.
+              In a membership vote on February 21, 1997, 444 voted to stay with
+              NEA versus 104 for CDA, preserving OMECO’s tax exemptions and
+              commitment to serve non-profitable far-flung barangays.
+            </p>
 
-  <!-- LOAD NAV -->
-  <script>
-    fetch("nav.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("nav-placeholder").innerHTML = data;
+            <p>
+              OMECO celebrated its 25th anniversary in 1999 and by 2000 remained
+              focused on its mission of providing dependable service to
+              member-consumers and lighting up remote communities, guided by its
+              established vision, mission, and goals despite ongoing challenges.
+            </p>
+          </section>
+        </div>
+
+        <!-- D ORGANIZATIONAL CHART -->
+        <div class="tab-content content-d">
+          <section class="intro-card org-card">
+            <h2 class="org-title">D. Organizational Chart</h2>
+
+            <p class="org-description">
+              The organizational chart of each department of OMECO is presented
+              below. Select a department to view its structure.
+            </p>
+
+            <!-- INNER TABS -->
+            <div class="org-tabs">
+              <!-- BUTTONS -->
+              <div class="org-tab-buttons">
+                <button class="org-tab active" data-chart="bod">
+                  Board Of Directors
+                </button>
+                <button class="org-tab" data-chart="ogm">OGM</button>
+                <button class="org-tab" data-chart="iad">Audit</button>
+                <button class="org-tab" data-chart="fsd">FSD</button>
+                <button class="org-tab" data-chart="isd">ISD</button>
+                <button class="org-tab" data-chart="tsd">TSD</button>
+                <button class="org-tab" data-chart="cpd">CPD</button>
+              </div>
+
+              <!-- IMAGE DISPLAY -->
+              <div class="org-chart-display">
+                <img
+                  id="org-chart-image"
+                  class="chart-fade show"
+                  src="assets/department/BOD.png"
+                  alt="Organizational Chart"
+                />
+              </div>
+
+              <!-- IMAGE MODAL -->
+              <div id="image-modal" class="image-modal">
+                <span class="close-modal">&times;</span>
+                <img class="modal-content" id="modal-img" />
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <!-- SCRIPT -->
+    <script>
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("nav-placeholder").innerHTML = data;
+        });
+
+      function activateTabFromHash() {
+        const hash = window.location.hash;
+
+        if (
+          hash === "#tab-a" ||
+          hash === "#tab-b" ||
+          hash === "#tab-c" ||
+          hash === "#tab-d"
+        ) {
+          const tab = document.querySelector(hash);
+          if (tab) tab.checked = true;
+        }
+      }
+
+      window.addEventListener("load", activateTabFromHash);
+      window.addEventListener("hashchange", activateTabFromHash);
+
+      document.querySelectorAll(".tab-buttons label").forEach((label) => {
+        label.addEventListener("click", () => {
+          const id = label.getAttribute("for");
+          history.replaceState(null, null, "#" + id);
+        });
       });
 
-    function activateTabFromHash() {
-      const hash = window.location.hash;
-      const tab = document.querySelector(hash);
-      if (tab) tab.checked = true;
-    }
+      const chartMap = {
+        bod: "assets/department/BOD.png",
+        ogm: "assets/department/OGM.png",
+        iad: "assets/department/AUDIT.png",
+        fsd: "assets/department/FSD.png",
+        isd: "assets/department/ISD.png",
+        tsd: "assets/department/TSD.png",
+        cpd: "assets/department/CPD.png",
+      };
 
-    window.addEventListener("load", activateTabFromHash);
-    window.addEventListener("hashchange", activateTabFromHash);
+      const chartImage = document.getElementById("org-chart-image");
 
-    document.querySelectorAll(".tab-buttons label").forEach(label => {
-      label.addEventListener("click", () => {
-        const id = label.getAttribute("for");
-        history.replaceState(null, null, "#" + id);
+      document.querySelectorAll(".org-tab").forEach((button) => {
+        button.addEventListener("click", () => {
+          document
+            .querySelectorAll(".org-tab")
+            .forEach((btn) => btn.classList.remove("active"));
+
+          button.classList.add("active");
+
+          const key = button.dataset.chart;
+
+          chartImage.classList.remove("show");
+
+          setTimeout(() => {
+            chartImage.src = chartMap[key];
+            chartImage.classList.add("show");
+          }, 200);
+        });
       });
-    });
-  </script>
 
-</body>
+      const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-img");
+const closeModal = document.querySelector(".close-modal");
+const mainImage = document.getElementById("org-chart-image");
+
+/* OPEN MODAL */
+mainImage.addEventListener("click", () => {
+  modal.style.display = "flex";
+  modalImg.src = mainImage.src;
+});
+
+/* CLOSE BUTTON */
+closeModal.onclick = () => {
+  modal.style.display = "none";
+};
+
+/* CLICK OUTSIDE IMAGE */
+modal.onclick = (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+};
+    </script>
+  </body>
 </html>

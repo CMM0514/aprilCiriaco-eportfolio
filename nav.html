@@ -1,52 +1,61 @@
 <link rel="stylesheet" href="assets/style.css" />
 
 <!-- NAVBAR -->
-      <nav class="navbar">
-        <a href="#home" class="nav-brand">MY OJT E-PORTFOLIO</a>
+<nav class="navbar">
+  <a href="#home" class="nav-brand">MY OJT E-PORTFOLIO</a>
 
-       <ul class="nav-links">
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
 
-  <li><a href="index.html">Home</a></li>
+    <!-- INTRODUCTION -->
+    <li class="dropdown">
+      <a href="introduction.html#tab-a">
+        I. Introduction <span class="arrow">▾</span>
+      </a>
 
-  <!-- INTRODUCTION -->
-  <li class="dropdown">
-  <a href="introduction.html#tab-a">
-    I. Introduction <span class="arrow">▾</span>
-  </a>
+      <ul class="dropdown-menu">
+        <li><a href="introduction.html#tab-a">A. Importance</a></li>
+        <li><a href="introduction.html#tab-b">B. Objectives</a></li>
+        <li><a href="introduction.html#tab-c">C. Time & Place</a></li>
+      </ul>
+    </li>
+    <!-- COMPANY -->
+    <li class="dropdown">
+      <a href="CompanyProfile.html">
+        II. Company Profile <span class="arrow">▾</span>
+      </a>
 
-  <ul class="dropdown-menu">
-    <li><a href="introduction.html#tab-a">A. Importance</a></li>
-    <li><a href="introduction.html#tab-b">B. Objectives</a></li>
-    <li><a href="introduction.html#tab-c">C. Time & Place</a></li>
+      <ul class="dropdown-menu">
+        <li><a href="CompanyProfile.html#tab-a">Nature of Agency</a></li>
+        <li><a href="CompanyProfile.html#tab-b">Mission/Vision</a></li>
+        <li><a href="CompanyProfile.html#tab-c">History</a></li>
+        <li><a href="CompanyProfile.html#tab-d">Organizational Chart</a></li>
+      </ul>
+    </li>
+
+    <!-- WORK -->
+    <li class="dropdown">
+      <button class="dropdown-btn">III. Work ▾</button>
+      <ul class="dropdown-menu">
+        <li><a href="weekly.html">Weekly Reports</a></li>
+        <li><a href="dtr.html">Daily Time Record</a></li>
+        <li><a href="progress.html">Progress</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contact.html">Contact</a></li>
   </ul>
-</li>
-  <!-- COMPANY -->
-  <li class="dropdown">
-    <a href="CompanyProfile.html">
-    II. Company Profile <span class="arrow">▾</span>
-  </a>
+</nav>
 
-    <ul class="dropdown-menu">
-      <li><a href="company-1.html">Nature of Agency</a></li>
-      <li><a href="company-2.html">Mission/Vision</a></li>
-      <li><a href="company-3.html">History</a></li>
-      <li><a href="company-4.html">Organizational Chart</a></li>
+<script>
+  // Highlight active navigation link
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".nav-links a");
 
-    </ul>
-  </li>
-
-  <!-- WORK -->
-  <li class="dropdown">
-    <button class="dropdown-btn"> III. Work ▾</button>
-    <ul class="dropdown-menu">
-      <li><a href="weekly.html">Weekly Reports</a></li>
-      <li><a href="dtr.html">Daily Time Record</a></li>
-      <li><a href="progress.html">Progress</a></li>
-    </ul>
-  </li>
-
-  <li><a href="contact.html">Contact</a></li>
-
-</ul>
-      </nav>
-
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href").split("#")[0];
+    if (href === currentPage || (currentPage === "" && href === "index.html")) {
+      link.classList.add("active");
+    }
+  });
+</script>
