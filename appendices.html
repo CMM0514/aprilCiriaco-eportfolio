@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appendices</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+
+  <body class="appendix-body">
+    <div id="nav-placeholder"></div>
+
+    <main class="appendix-page-modern">
+      <section class="appendix-modern-hero">
+        <div class="appendix-hero-title">
+          <span class="appendix-hero-badge">CAST OJT</span>
+          <h1>Supporting Documents</h1>
+        </div>
+        <p>
+          Supporting documents for the CAST Student Internship Program arranged
+          from Appendix A to Appendix R. Select an appendix to preview its
+          document.
+        </p>
+        <div class="appendix-hero-stats">
+          <span id="appendix-total-count">18 appendices</span>
+          <span id="appendix-complete-count">Completed: 0/18</span>
+        </div>
+      </section>
+
+      <section class="appendix-two-column" aria-label="Appendices viewer">
+        <aside class="appendix-list-panel" aria-label="Appendix list">
+          <div class="appendix-list-heading">
+            <span>Appendix List</span>
+            <h2>A-R Documents</h2>
+          </div>
+          <div class="appendix-list-buttons" id="appendix-list"></div>
+        </aside>
+
+        <section class="appendix-viewer-panel" aria-label="Selected appendix">
+          <div class="appendix-viewer-title">
+            <span id="appendix-viewer-kicker">Appendix A</span>
+            <h2 id="appendix-viewer-title">
+              Evaluation Form (Registrar's Office)
+            </h2>
+          </div>
+
+          <div class="appendix-viewer-stage">
+            <button
+              class="appendix-page-arrow"
+              id="appendix-prev"
+              type="button"
+              aria-label="Previous page"
+            >
+              &lsaquo;
+            </button>
+
+            <div class="appendix-image-frame">
+              <img
+                id="appendix-viewer-image"
+                src="assets/Scanned%20picsss/Evaluation%20form.jpeg"
+                alt="Evaluation Form preview"
+              />
+              <div class="appendix-pending-state" id="appendix-pending" hidden>
+                <strong>DOC</strong>
+                <p>This document is pending. Check back soon.</p>
+              </div>
+            </div>
+
+            <button
+              class="appendix-page-arrow"
+              id="appendix-next"
+              type="button"
+              aria-label="Next page"
+            >
+              &rsaquo;
+            </button>
+          </div>
+
+          <div class="appendix-viewer-footer">
+            <span id="appendix-page-label">Evaluation Form</span>
+            <span id="appendix-page-count">1 / 1</span>
+          </div>
+        </section>
+      </section>
+
+      <p class="appendix-footer-note">
+        All appendices related to the CAST Student Internship Program.
+      </p>
+    </main>
+
+    <div class="appendix-preview-modal" aria-hidden="true">
+      <div class="appendix-preview-dialog" role="dialog" aria-modal="true">
+        <button
+          class="appendix-preview-close"
+          type="button"
+          aria-label="Close preview"
+        >
+          &times;
+        </button>
+        <h2></h2>
+        <img src="" alt="" />
+      </div>
+    </div>
+
+    <script>
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("nav-placeholder").innerHTML = data;
+        });
+
+      const appendices = [
+        {
+          letter: "A",
+          title: "Evaluation Form (Registrar's Office)",
+          pages: [
+            ["Evaluation Form", "assets/Scanned%20picsss/Evaluation%20form.jpeg"],
+          ],
+        },
+        {
+          letter: "B",
+          title: "Photocopy Registration Form",
+          pages: [
+            ["Registration Form", "assets/Scanned%20picsss/Registration%20form.jpg"],
+          ],
+        },
+        {
+          letter: "C",
+          title: "Photocopy Validated ID",
+          pages: [
+            [
+              "Validated ID - Page 1",
+              "assets/Scanned%20picsss/Photocopy%20Validated%20ID.jpg",
+            ],
+            [
+              "Validated ID - Page 2",
+              "assets/Scanned%20picsss/Photocopy%20Validated%20ID-2.jpg",
+            ],
+          ],
+        },
+        {
+          letter: "D",
+          title: "Parent's Consent",
+          pages: [["Parent's Consent", "assets/Scanned%20picsss/Consent%20Form.jpg"]],
+        },
+        {
+          letter: "E",
+          title: "Medical Certificate",
+          pages: [
+            ["Medical Certificate - Page 1", "assets/Scanned%20picsss/medical-dental.jpeg"],
+            ["Medical Certificate - Page 2", "assets/Scanned%20picsss/medical-dental2.jpeg"],
+          ],
+        },
+        {
+          letter: "F",
+          title: "Certificate of Good Moral Character",
+          pages: [
+            ["Good Moral Certificate", "assets/Scanned%20picsss/Good%20Moral.jpg"],
+          ],
+        },
+        { letter: "G", title: "Application Letter", pages: [] },
+        {
+          letter: "H",
+          title: "Endorsement Letter",
+          pages: [
+            ["Endorsement Letter - Page 1", "assets/Scanned%20picsss/Endorsement%20Letter.jpg"],
+            [
+              "Endorsement Letter - Page 2",
+              "assets/Scanned%20picsss/Endorsement%20Letter%202.jpg",
+            ],
+          ],
+        },
+        {
+          letter: "I",
+          title: "Memorandum of Agreement",
+          pages: [
+            ["MOA - Page 1", "assets/Scanned%20picsss/Moa-1.jpg"],
+            ["MOA - Page 2", "assets/Scanned%20picsss/Moa-2.jpg"],
+            ["MOA - Page 3", "assets/Scanned%20picsss/Moa-3.jpg"],
+            ["MOA - Page 4", "assets/Scanned%20picsss/Moa-4.jpg"],
+            ["MOA - Page 5", "assets/Scanned%20picsss/Moa-5.jpg"],
+          ],
+        },
+        {
+          letter: "J",
+          title: "Daily Time Record (Time Card)",
+          pages: [
+            ["February DTR - Page 1", "assets/Scanned%20picsss/feb1.jpg"],
+            ["February DTR - Page 2", "assets/Scanned%20picsss/Feb2.jpg"],
+            ["March DTR - Page 1", "assets/Scanned%20picsss/march1.jpg"],
+            ["March DTR - Page 2", "assets/Scanned%20picsss/march2.jpg"],
+            ["April DTR - Page 1", "assets/Scanned%20picsss/april%201.jpg"],
+            ["April DTR - Page 2", "assets/Scanned%20picsss/april%202.jpg"],
+          ],
+        },
+        {
+          letter: "K",
+          title: "Certificate of Completion (Placement Agency/Office)",
+          pages: [],
+        },
+        {
+          letter: "L",
+          title: "Certificate of Clearance (Placement Agency/Office)",
+          pages: [],
+        },
+        {
+          letter: "M",
+          title: "Performance/Proficiency Rating Sheet (Placement Agency/Office)",
+          pages: [],
+        },
+        { letter: "N", title: "Pictures during Pre-service Seminar", pages: [] },
+        { letter: "O", title: "Pictures during Office works", pages: [] },
+        { letter: "P", title: "Code of Ethics for CAST Student Internship", pages: [] },
+        { letter: "Q", title: "Curriculum Vitae", pages: [] },
+        {
+          letter: "R",
+          title: "On-the-Job Training Portfolio Evaluation Form",
+          pages: [
+            [
+              "Portfolio Evaluation Form - Page 1",
+              "assets/Scanned%20picsss/student%20internship%20evaluation%20form.jpg",
+            ],
+            [
+              "Portfolio Evaluation Form - Page 2",
+              "assets/Scanned%20picsss/student%20internship%20evaluation%20form-2.jpg",
+            ],
+            [
+              "Portfolio Evaluation Form - Page 3",
+              "assets/Scanned%20picsss/student%20internship%20evaluation%20form-3.jpg",
+            ],
+          ],
+        },
+      ];
+
+      const list = document.getElementById("appendix-list");
+      const totalCount = document.getElementById("appendix-total-count");
+      const completeCount = document.getElementById("appendix-complete-count");
+      const viewerKicker = document.getElementById("appendix-viewer-kicker");
+      const viewerTitle = document.getElementById("appendix-viewer-title");
+      const viewerImage = document.getElementById("appendix-viewer-image");
+      const pendingState = document.getElementById("appendix-pending");
+      const prevButton = document.getElementById("appendix-prev");
+      const nextButton = document.getElementById("appendix-next");
+      const pageLabel = document.getElementById("appendix-page-label");
+      const pageCount = document.getElementById("appendix-page-count");
+      const modal = document.querySelector(".appendix-preview-modal");
+      const modalTitle = modal.querySelector("h2");
+      const modalImage = modal.querySelector("img");
+      const modalClose = modal.querySelector(".appendix-preview-close");
+
+      let activeAppendixIndex = 0;
+      let activePageIndex = 0;
+
+      const completedAppendices = appendices.filter(
+        (appendix) => appendix.pages.length > 0,
+      ).length;
+
+      totalCount.textContent = `${appendices.length} appendices`;
+      completeCount.textContent = `Completed: ${completedAppendices}/${appendices.length}`;
+
+      function renderList() {
+        appendices.forEach((appendix, index) => {
+          const button = document.createElement("button");
+          button.className = "appendix-list-item";
+          button.type = "button";
+          button.innerHTML = `
+            <span>Appendix ${appendix.letter}</span>
+            <strong>${appendix.title}</strong>
+          `;
+          button.addEventListener("click", () => selectAppendix(index));
+          list.appendChild(button);
+        });
+      }
+
+      function updateListState() {
+        document.querySelectorAll(".appendix-list-item").forEach((button, index) => {
+          button.classList.toggle("active", index === activeAppendixIndex);
+        });
+      }
+
+      function updateViewer() {
+        const appendix = appendices[activeAppendixIndex];
+        const hasPages = appendix.pages.length > 0;
+        const page = hasPages ? appendix.pages[activePageIndex] : null;
+
+        viewerKicker.textContent = `Appendix ${appendix.letter}`;
+        viewerTitle.textContent = appendix.title;
+        viewerImage.hidden = !hasPages;
+        pendingState.hidden = hasPages;
+        viewerImage.style.display = hasPages ? "" : "none";
+        pendingState.style.display = hasPages ? "none" : "grid";
+        prevButton.disabled = !hasPages || appendix.pages.length < 2;
+        nextButton.disabled = !hasPages || appendix.pages.length < 2;
+
+        if (hasPages) {
+          viewerImage.src = page[1];
+          viewerImage.alt = `${appendix.title} preview`;
+          pageLabel.textContent = page[0];
+          pageCount.textContent = `${activePageIndex + 1} / ${appendix.pages.length}`;
+        } else {
+          viewerImage.removeAttribute("src");
+          pageLabel.textContent = "This document is pending. Check back soon.";
+          pageCount.textContent = "0 / 0";
+        }
+
+        updateListState();
+      }
+
+      function selectAppendix(index) {
+        activeAppendixIndex = index;
+        activePageIndex = 0;
+        updateViewer();
+      }
+
+      function changePage(direction) {
+        const pages = appendices[activeAppendixIndex].pages;
+        if (pages.length < 2) return;
+        activePageIndex = (activePageIndex + direction + pages.length) % pages.length;
+        viewerImage.classList.remove("show");
+        window.requestAnimationFrame(() => {
+          updateViewer();
+          viewerImage.classList.add("show");
+        });
+      }
+
+      function openPreview() {
+        const appendix = appendices[activeAppendixIndex];
+        if (appendix.pages.length === 0) return;
+        const page = appendix.pages[activePageIndex];
+        modalTitle.textContent = `Appendix ${appendix.letter}: ${page[0]}`;
+        modalImage.src = page[1];
+        modalImage.alt = `${appendix.title} preview`;
+        modal.classList.add("show");
+        modal.setAttribute("aria-hidden", "false");
+      }
+
+      function closePreview() {
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden", "true");
+        modalImage.src = "";
+      }
+
+      prevButton.addEventListener("click", () => changePage(-1));
+      nextButton.addEventListener("click", () => changePage(1));
+      viewerImage.addEventListener("click", openPreview);
+      modalClose.addEventListener("click", closePreview);
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closePreview();
+      });
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closePreview();
+        if (event.key === "ArrowLeft") changePage(-1);
+        if (event.key === "ArrowRight") changePage(1);
+      });
+
+      renderList();
+      updateViewer();
+      viewerImage.classList.add("show");
+    </script>
+  </body>
+</html>

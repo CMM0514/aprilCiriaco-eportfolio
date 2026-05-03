@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+
+  <body class="assessment-body">
+    <div id="nav-placeholder"></div>
+
+    <main class="assessment-page">
+      <section class="assessment-hero">
+        <span>Chapter IV</span>
+        <h1>Assessment</h1>
+        <p>
+          Student internship evaluation form for the BSIT On-the-Job Training
+          portfolio.
+        </p>
+      </section>
+
+      <section class="assessment-document">
+        <div class="assessment-document-heading">
+          <span>Student Internship Form</span>
+          <h2>On-the-Job Training Evaluation</h2>
+          <p>
+            Click any page to open a larger preview.
+          </p>
+        </div>
+
+        <div class="assessment-pages">
+          <button
+            class="assessment-page-card"
+            type="button"
+            data-title="Student Internship Evaluation Form - Page 1"
+            data-src="assets/Scanned%20picsss/student%20internship%20evaluation%20form.jpg"
+          >
+            <img
+              src="assets/Scanned%20picsss/student%20internship%20evaluation%20form.jpg"
+              alt="Student Internship Evaluation Form page 1"
+            />
+            <span>Page 1</span>
+          </button>
+
+          <button
+            class="assessment-page-card"
+            type="button"
+            data-title="Student Internship Evaluation Form - Page 2"
+            data-src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-2.jpg"
+          >
+            <img
+              src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-2.jpg"
+              alt="Student Internship Evaluation Form page 2"
+            />
+            <span>Page 2</span>
+          </button>
+
+          <button
+            class="assessment-page-card"
+            type="button"
+            data-title="Student Internship Evaluation Form - Page 3"
+            data-src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-3.jpg"
+          >
+            <img
+              src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-3.jpg"
+              alt="Student Internship Evaluation Form page 3"
+            />
+            <span>Page 3</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div class="appendix-preview-modal" aria-hidden="true">
+      <div class="appendix-preview-dialog" role="dialog" aria-modal="true">
+        <button
+          class="appendix-preview-close"
+          type="button"
+          aria-label="Close preview"
+        >
+          &times;
+        </button>
+        <h2></h2>
+        <img src="" alt="" />
+      </div>
+    </div>
+
+    <script>
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("nav-placeholder").innerHTML = data;
+        });
+
+      const modal = document.querySelector(".appendix-preview-modal");
+      const modalTitle = modal.querySelector("h2");
+      const modalImage = modal.querySelector("img");
+      const modalClose = modal.querySelector(".appendix-preview-close");
+
+      document.querySelectorAll(".assessment-page-card").forEach((button) => {
+        button.addEventListener("click", () => {
+          modalTitle.textContent = button.dataset.title;
+          modalImage.src = button.dataset.src;
+          modalImage.alt = `${button.dataset.title} preview`;
+          modal.classList.add("show");
+          modal.setAttribute("aria-hidden", "false");
+        });
+      });
+
+      function closePreview() {
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden", "true");
+        modalImage.src = "";
+      }
+
+      modalClose.addEventListener("click", closePreview);
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closePreview();
+      });
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closePreview();
+      });
+    </script>
+  </body>
+</html>
