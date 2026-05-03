@@ -6,11 +6,11 @@
     <title>Portfolio Hero Mockup</title>
     <link rel="stylesheet" href="assets/style.css" />
   </head>
+
   <body>
-  <div id="nav-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
     <main class="container">
-   
-      <!-- HERO -->
       <section class="hero">
         <div class="hero-text">
           <div class="hero-logos">
@@ -19,12 +19,15 @@
             <img src="assets/omeco.png" alt="Agency Logo" />
             <img src="assets/Nea.png" alt="Company Logo" />
           </div>
+
           <h1>APRIL MEA E. CIRIACO</h1>
+
           <p>
             A BSIT student currently in training, developing practical skills in
             web development and digital solutions.
           </p>
-          <a href="introduction.html" class="hero-btn">Let’s Get Started →</a>
+
+          <a href="introduction.html" class="hero-btn">Let's Get Started -></a>
         </div>
 
         <div class="hero-image">
@@ -37,15 +40,118 @@
           </div>
         </div>
       </section>
-    </div>
+
+      <section class="index-notes" id="profile-introduction">
+        <div class="index-notes-heading">
+          <span>Profile Introduction</span>
+          <h2>My OJT Journey</h2>
+          <p>
+            "My OJT journey served as a bridge between being a student and
+            becoming a future professional."
+          </p>
+          <small>- April Mea Ciriaco</small>
+        </div>
+
+        <div class="index-note-grid">
+          <article class="index-note-card featured-note">
+            <span class="note-label">Acknowledgement</span>
+            <p>
+              I would like to express my heartfelt gratitude to all the people
+              who have been part of my On-the-Job Training journey. Their
+              support, guidance, and encouragement greatly contributed to the
+              successful completion of this experience.
+            </p>
+            <p>
+              I sincerely thank the General Manager, Engr. Celso D. Garcia of
+              OMECO, for allowing me the opportunity to be part of the
+              organization and gain valuable real-world experience.
+            </p>
+            <p>
+              I am also deeply grateful to Mr. John Patrick Loyzaga, my
+              supervisor in the Technical Services Department, Network Assets
+              Services Division, Meter Laboratory, for the guidance, patience,
+              and knowledge shared throughout my training.
+            </p>
+            <p>
+              To my SIP Coordinator, Leiza Linda Pelayo, thank you for the
+              continuous support, monitoring, and guidance that helped keep my
+              training on track.
+            </p>
+            <p>
+              To my family, especially my big sister, Realyn Ciriaco, thank you
+              for your support and encouragement. Most especially, to my mother
+              in heaven, Erlinda Estrosas, your love and guidance continue to
+              inspire me every day. This achievement is dedicated to you.
+            </p>
+            <p>
+              Above all, I offer my deepest thanks to Almighty God for the
+              strength, wisdom, and blessings He has given me to overcome
+              challenges and successfully complete my OJT.
+            </p>
+          </article>
+
+          <article class="index-note-card">
+            <span class="note-label">Student Prayer</span>
+            <p>
+              Dear God, thank You for the gift of life and for guiding me every
+              day. Thank You for all the blessings, opportunities, and lessons
+              that help me grow as a person and as a student.
+            </p>
+            <p>
+              Please forgive me for my mistakes and shortcomings. Help me learn
+              from them and become a better and more responsible person.
+            </p>
+            <p>
+              Lord, guide me as I prepare for my next journey after graduation.
+              Lead me to the right path, give me wisdom in every decision, and
+              help me trust Your plan for my future. Amen.
+            </p>
+          </article>
+
+          <article class="index-note-card">
+            <span class="note-label">Personal Philosophy</span>
+            <p>
+              Life is full of uncertainties, and not everything happens
+              according to our plans. During difficult moments, I believe it is
+              important to stay calm, accept what cannot be forced, and move
+              forward with a peaceful heart.
+            </p>
+            <p>
+              Growth comes from experience. Every struggle teaches a lesson,
+              every mistake builds character, and every failure can become a
+              stepping stone toward improvement.
+            </p>
+            <p>
+              True strength comes from accepting what we cannot change and
+              continuing to move forward with hope, perseverance, and faith.
+            </p>
+          </article>
+
+          <article class="index-note-card">
+            <span class="note-label">Career Plan</span>
+            <p>
+              My short-term career goal is to work in an office or company
+              where I can use my computer skills, gain experience in encoding,
+              data entry, administrative support, and improve through training.
+            </p>
+            <p>
+              In the long term, I plan to have a stable and meaningful career,
+              either as a teacher or by starting my own business. I want to
+              support my family, keep learning, and work hard toward a
+              successful future.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
 
     <script>
-        fetch('nav.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('nav-placeholder').innerHTML = data;
-    });
-    
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("nav-placeholder").innerHTML = data;
+        });
+
       document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener("click", function (e) {
           e.preventDefault();

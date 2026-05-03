@@ -1,16 +1,13 @@
-<link rel="stylesheet" href="assets/style.css" />
-
 <!-- NAVBAR -->
 <nav class="navbar">
-  <a href="#home" class="nav-brand">MY OJT E-PORTFOLIO</a>
+  <a href="index.html" class="nav-brand">MY OJT E-PORTFOLIO</a>
 
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
 
-    <!-- INTRODUCTION -->
     <li class="dropdown">
       <a href="introduction.html#tab-a">
-        I. Introduction <span class="arrow">▾</span>
+        I. Introduction <span class="arrow">&dtrif;</span>
       </a>
 
       <ul class="dropdown-menu">
@@ -19,10 +16,10 @@
         <li><a href="introduction.html#tab-c">C. Time & Place</a></li>
       </ul>
     </li>
-    <!-- COMPANY -->
+
     <li class="dropdown">
       <a href="CompanyProfile.html">
-        II. Company Profile <span class="arrow">▾</span>
+        II. Company Profile <span class="arrow">&dtrif;</span>
       </a>
 
       <ul class="dropdown-menu">
@@ -33,29 +30,20 @@
       </ul>
     </li>
 
-    <!-- WORK -->
     <li class="dropdown">
-      <button class="dropdown-btn">III. Work ▾</button>
+      <a href="work-exp.html">
+        III. Work Experiences <span class="arrow">&dtrif;</span>
+      </a>
+
       <ul class="dropdown-menu">
-        <li><a href="weekly.html">Weekly Reports</a></li>
-        <li><a href="dtr.html">Daily Time Record</a></li>
-        <li><a href="progress.html">Progress</a></li>
+        <li><a href="work-exp.html#tab-a">Weekly Reports</a></li>
+        <li><a href="work-exp.html#tab-b">Daily Time Record</a></li>
+        <li><a href="work-exp.html#tab-c">Progress Report</a></li>
+        <li><a href="work-exp.html#tab-d">Analysis Report</a></li>
       </ul>
     </li>
 
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html">IV. Assessment</a></li>
+    <li><a href="contact.html">Appendices</a></li>
   </ul>
 </nav>
-
-<script>
-  // Highlight active navigation link
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  const navLinks = document.querySelectorAll(".nav-links a");
-
-  navLinks.forEach((link) => {
-    const href = link.getAttribute("href").split("#")[0];
-    if (href === currentPage || (currentPage === "" && href === "index.html")) {
-      link.classList.add("active");
-    }
-  });
-</script>

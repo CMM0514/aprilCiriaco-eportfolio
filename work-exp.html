@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work Experiences</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+
+  <body>
+    <div id="nav-placeholder"></div>
+
+    <main class="intro-page work-page">
+      <section class="intro-hero work-hero">
+        <p class="section-label">Chapter III</p>
+        <h1 class="intro-title">WORK EXPERIENCES</h1>
+        <p>
+          This chapter presents my weekly accomplishment reports, daily time
+          record, progress report, and analysis report from February to April
+          2026.
+        </p>
+      </section>
+
+      <section class="intro-tabs work-tabs">
+        <input type="radio" name="work" id="tab-a" checked />
+        <input type="radio" name="work" id="tab-b" />
+        <input type="radio" name="work" id="tab-c" />
+        <input type="radio" name="work" id="tab-d" />
+
+        <div class="tab-buttons">
+          <label for="tab-a">1. Weekly Accomplishment Report</label>
+          <label for="tab-b">2. Daily Time Record</label>
+          <label for="tab-c">3. Internship Progress Report</label>
+          <label for="tab-d">4. Internship Analysis Report</label>
+        </div>
+
+        <div class="tab-content content-a">
+          <section class="intro-card weekly-card">
+            <div class="work-section-heading">
+              <span>February - April 2026</span>
+              <h2>Monthly Accomplishment Report</h2>
+              <p>
+                A calendar-style report layout inspired by your sample pages,
+                with temporary internet images for documentation.
+              </p>
+            </div>
+
+            <div class="month-strip" aria-label="Internship months">
+              <a href="#february">February</a>
+              <a href="#march">March</a>
+              <a href="#april">April</a>
+            </div>
+
+            <div id="weekly-report"></div>
+          </section>
+        </div>
+
+        <div class="tab-content content-b">
+          <section class="intro-card document-panel">
+            <div class="work-section-heading">
+              <span>Attendance Documentation</span>
+              <h2>Daily Time Record</h2>
+              <p>
+                Prepared spaces for scanned DTR pages. These can be replaced
+                with your final February, March, and April files later.
+              </p>
+            </div>
+
+            <div class="document-grid">
+              <article class="document-slot">
+                <span>February 2026</span>
+                <h3>DTR Sheet</h3>
+                <p>Upload or replace this panel with the official February DTR.</p>
+              </article>
+              <article class="document-slot">
+                <span>March 2026</span>
+                <h3>DTR Sheet</h3>
+                <p>Upload or replace this panel with the official March DTR.</p>
+              </article>
+              <article class="document-slot">
+                <span>April 2026</span>
+                <h3>DTR Sheet</h3>
+                <p>Upload or replace this panel with the official April DTR.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <div class="tab-content content-c">
+          <section class="intro-card document-panel">
+            <div class="work-section-heading">
+              <span>Internship Monitoring</span>
+              <h2>Internship Progress Report</h2>
+              <p>
+                A summary layout for completed hours, task milestones, and
+                supervisor notes.
+              </p>
+            </div>
+
+            <div class="progress-layout">
+              <div class="progress-meter">
+                <strong>486</strong>
+                <span>Total OJT Hours</span>
+              </div>
+              <ul class="progress-list">
+                <li>Orientation and workplace familiarization</li>
+                <li>Encoding, scanning, and report preparation</li>
+                <li>Document routing and signature processing</li>
+                <li>Office event support and final completion tasks</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <div class="tab-content content-d">
+          <section class="intro-card document-panel">
+            <div class="work-section-heading">
+              <span>Reflection and Evaluation</span>
+              <h2>Internship Analysis Report</h2>
+              <p>
+                Reserved for the final discussion of learning, challenges,
+                skills gained, and professional growth.
+              </p>
+            </div>
+
+            <div class="analysis-grid">
+              <article>
+                <h3>Skills Developed</h3>
+                <p>Encoding, documentation, filing, coordination, and reporting.</p>
+              </article>
+              <article>
+                <h3>Work Values Applied</h3>
+                <p>Responsibility, punctuality, teamwork, patience, and accuracy.</p>
+              </article>
+              <article>
+                <h3>Professional Growth</h3>
+                <p>
+                  Improved confidence in office tasks and communication inside
+                  a professional environment.
+                </p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("nav-placeholder").innerHTML = data;
+        });
+
+      const photoPool = [
+        "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=520&q=80",
+        "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=520&q=80"
+      ];
+
+      const months = [
+        {
+          id: "february",
+          tag: "FEB",
+          name: "February",
+          note: "Orientation and first office tasks",
+          weeks: [
+            ["February 2-6, 2026", "Deployment, Orientation, and Initial Office Work", "On deployment day, I attended the orientation where the agency's vision and mission were introduced. My first assigned task was identifying and listing consumer meter readers, then encoding, scanning, and updating data in the OMECO portal."],
+            ["February 9-13, 2026", "Daily Workflow and Portal Processing", "I handled daily office workflows, including processing paperwork for signature and updating consumer data in the OMECO portal."],
+            ["February 16-20, 2026", "Logbook and Meter Report Encoding", "I received and signed the logbook of CPD and MSD, received meter daily reports, and placed them on my supervisor's table for checking and encoding."],
+            ["February 23-27, 2026", "Meter Reading and Change Meter Reports", "I worked on ERC reports, processed papers for signature, and updated the change meter accomplishment report for the office."]
+          ]
+        },
+        {
+          id: "march",
+          tag: "MAR",
+          name: "March",
+          note: "Encoding, inventory, and office assistance",
+          weeks: [
+            ["March 2-6, 2026", "Inventory Assistance and Document Routing", "Under the supervision of the TSD department, I assisted with inventory, document routing, and obtaining signatures from concerned departments and managers."],
+            ["March 9-13, 2026", "Mini Mart Participation and Liquidation Support", "I participated in earthquake drills and assisted in receiving customer payments, preparing liquidation, and continuing assigned office tasks."],
+            ["March 16-20, 2026", "Meter Reader Reports and Presentations", "I encoded meter reader reports for CPD, brainstormed for MSD presentations, and finished scanning and accomplishing reports."],
+            ["March 23-27, 2026", "Anniversary Preparation and Visitor Assistance", "I assisted in preparations for the office anniversary, including snack distribution and support during visitor activities."]
+          ]
+        },
+        {
+          id: "april",
+          tag: "APR",
+          name: "April",
+          note: "Reports, scanning, and completion tasks",
+          weeks: [
+            ["April 6-11, 2026", "Gate Passes, Encoding, and Overtime Support", "I prepared gate passes for testing private transformers, encoded Excel files, and processed overtime reports from CPD and MSD."],
+            ["April 13-17, 2026", "Portal Updating and Radio Room Reading", "I updated the portal, released meter daily reports, filed accomplishment and accuracy tests, and monitored radio room reading."],
+            ["April 20-24, 2026", "Scanning, Digitizing, and Radio Monitoring", "I assisted in scanning new meters, digitized old meters for security, monitored GIS, and accomplished reports while assisting radio monitoring during overtime hours."],
+            ["April 27-May 1, 2026", "Final DTS Processing and Internship Completion", "I processed final DTS records in the office and completed final internship application requirements at the TSD office."]
+          ]
+        }
+      ];
+
+      const weeklyReport = document.getElementById("weekly-report");
+
+      weeklyReport.innerHTML = months
+        .map((month, monthIndex) => {
+          const weeks = month.weeks
+            .map((week, weekIndex) => {
+              const start = (monthIndex * 4 + weekIndex) % photoPool.length;
+              const photos = [0, 1, 2, 3]
+                .map((offset) => photoPool[(start + offset) % photoPool.length])
+                .map((src) => `<img src="${src}" alt="Sample documentation photo" />`)
+                .join("");
+
+              return `
+                <article class="report-sheet">
+                  <div class="report-date">${week[0]}</div>
+                  <div class="report-task">
+                    <h3>${week[1]}</h3>
+                    <p>${week[2]}</p>
+                  </div>
+                  <div class="report-photos collage-four">${photos}</div>
+                </article>
+              `;
+            })
+            .join("");
+
+          return `
+            <div class="report-month" id="${month.id}">
+              <div class="month-marker">
+                <span>${month.tag}</span>
+                <strong>${month.name}</strong>
+                <small>${month.note}</small>
+              </div>
+              <div>${weeks}</div>
+            </div>
+          `;
+        })
+        .join("");
+
+      function activateTabFromHash() {
+        const hash = window.location.hash;
+
+        if (
+          hash === "#tab-a" ||
+          hash === "#tab-b" ||
+          hash === "#tab-c" ||
+          hash === "#tab-d"
+        ) {
+          const tab = document.querySelector(hash);
+          if (tab) tab.checked = true;
+        }
+      }
+
+      window.addEventListener("load", activateTabFromHash);
+      window.addEventListener("hashchange", activateTabFromHash);
+
+      document.querySelectorAll(".tab-buttons label").forEach((label) => {
+        label.addEventListener("click", () => {
+          const id = label.getAttribute("for");
+          history.replaceState(null, null, "#" + id);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -37,7 +37,7 @@ section {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(1500px, 95%);
+  width: min(1580px, 96%);
   z-index: 9999;
 
   display: flex;
@@ -46,8 +46,8 @@ section {
 
   background: rgba(15, 23, 42, 0.92);
   backdrop-filter: blur(14px);
-  padding: 16px 28px;
-  border-radius: 18px;
+  padding: 20px 34px;
+  border-radius: 22px;
   animation: anime 0.5s ease forwards;
 }
 
@@ -74,7 +74,7 @@ section {
   font-weight: 800;
   letter-spacing: 1px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .nav-links {
@@ -86,8 +86,8 @@ section {
 .nav-links a {
   text-decoration: none;
   color: #cbd5e1;
-  font-size: 17px;
-  padding: 10px 14px;
+  font-size: 18px;
+  padding: 12px 16px;
   border-radius: 999px;
   transition: 0.3s ease;
 }
@@ -112,9 +112,9 @@ section {
   background: none;
   border: none;
   color: #cbd5e1;
-  font-size: 17px;
+  font-size: 18px;
   cursor: pointer;
-  padding: 10px 14px;
+  padding: 12px 16px;
   border-radius: 999px;
   transition: 0.3s ease;
   font-family: inherit;
@@ -168,11 +168,11 @@ section {
 
 .dropdown-menu li a {
   display: block;
-  padding: 10px 14px;
+  padding: 12px 16px;
   color: #cbd5e1;
   text-decoration: none;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 16px;
   transition: 0.2s ease;
 }
 
@@ -511,7 +511,7 @@ section {
 
 #tab-a:checked ~ .tab-buttons label[for="tab-a"],
 #tab-b:checked ~ .tab-buttons label[for="tab-b"],
-#tab-c:checked ~ .tab-buttons label[for="tab-c"]
+#tab-c:checked ~ .tab-buttons label[for="tab-c"],
 #tab-d:checked ~ .tab-buttons label[for="tab-d"] {
   background: #f59e0b;
   color: #0b0f1a;
@@ -1013,6 +1013,356 @@ section {
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* WORK EXPERIENCES PAGE */
+.work-page {
+  max-width: 1280px;
+}
+
+.work-hero .section-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.work-tabs .tab-buttons label {
+  font-size: 16px;
+}
+
+.weekly-card,
+.document-panel {
+  border-radius: 24px;
+}
+
+.work-section-heading {
+  position: relative;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 26px;
+}
+
+.work-section-heading span {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #f59e0b;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.work-section-heading h2 {
+  margin-bottom: 10px;
+}
+
+.work-section-heading p {
+  margin-bottom: 0;
+  color: #cbd5e1;
+}
+
+.month-strip {
+  position: sticky;
+  top: 104px;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0 auto 30px;
+  padding: 12px;
+  width: fit-content;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+}
+
+.month-strip a {
+  color: #dbeafe;
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  transition: 0.25s ease;
+}
+
+.month-strip a:hover {
+  background: #f59e0b;
+  color: #0b0f1a;
+}
+
+.report-month {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 22px;
+  margin-top: 28px;
+  scroll-margin-top: 190px;
+}
+
+.month-marker {
+  position: sticky;
+  top: 180px;
+  align-self: start;
+  min-height: 190px;
+  padding: 22px;
+  border-radius: 22px;
+  background:
+    linear-gradient(145deg, rgba(245, 158, 11, 0.92), rgba(14, 76, 124, 0.86)),
+    rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.28);
+}
+
+.month-marker span {
+  display: block;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 0.9;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.month-marker strong {
+  display: block;
+  margin-top: 16px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.month-marker small {
+  display: block;
+  margin-top: 8px;
+  color: #e5e7eb;
+  line-height: 1.5;
+}
+
+.report-sheet {
+  display: grid;
+  grid-template-columns: 160px minmax(210px, 0.95fr) minmax(280px, 1.25fr);
+  gap: 1px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.report-date,
+.report-task,
+.report-photos {
+  background: rgba(9, 26, 52, 0.74);
+}
+
+.report-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  color: #fef3c7;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.45;
+}
+
+.report-task {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+}
+
+.report-task h3 {
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.report-task p {
+  margin: 0;
+  color: #e5e7eb;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.report-photos {
+  display: grid;
+  min-height: 250px;
+  padding: 8px;
+  gap: 8px;
+}
+
+.report-photos img {
+  width: 100%;
+  height: 100%;
+  min-height: 112px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.collage-four {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.document-grid,
+.analysis-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.document-slot,
+.analysis-grid article {
+  padding: 24px;
+  min-height: 240px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px dashed rgba(245, 158, 11, 0.48);
+}
+
+.document-slot span {
+  color: #f59e0b;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.document-slot h3,
+.analysis-grid h3 {
+  margin: 14px 0 10px;
+  color: #fff;
+}
+
+.document-slot p,
+.analysis-grid p {
+  color: #d1d5db;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.progress-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.progress-meter {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(15, 23, 42, 0.94) 58%, transparent 59%),
+    conic-gradient(#f59e0b 0 100%, rgba(255, 255, 255, 0.1) 0);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.progress-meter strong {
+  font-size: 58px;
+  line-height: 1;
+  color: #fff;
+}
+
+.progress-meter span {
+  color: #fef3c7;
+  font-weight: 800;
+}
+
+.progress-list {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+
+.progress-list li {
+  padding: 16px 18px;
+  border-radius: 14px;
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.up-button {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 9998;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  color: #0b0f1a;
+  background: #f59e0b;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 900;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.up-button:hover {
+  transform: translateY(-5px);
+  background: #fbbf24;
+  box-shadow: 0 22px 50px rgba(245, 158, 11, 0.28);
+}
+
+@media (max-width: 980px) {
+  .report-month,
+  .progress-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .month-marker {
+    position: static;
+    min-height: auto;
+  }
+
+  .report-sheet {
+    grid-template-columns: 1fr;
+  }
+
+  .report-date {
+    justify-content: flex-start;
+  }
+
+  .document-grid,
+  .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .month-strip {
+    position: static;
+    width: 100%;
+    border-radius: 18px;
+  }
+
+  .month-strip a {
+    flex: 1;
+    text-align: center;
+  }
+
+  .report-photos,
+  .collage-four {
+    grid-template-columns: 1fr;
+  }
+
+  .up-button {
+    right: 18px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
   }
 }
 /* MODAL BACKGROUND */
