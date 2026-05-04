@@ -7,7 +7,7 @@ function loadNav() {
 
       placeholder.innerHTML = data;
 
-      placeholder.querySelectorAll(".nav-links a").forEach((link) => {
+      placeholder.querySelectorAll(".nav-links > li > a").forEach((link) => {
         const href = link.getAttribute("href").split("#")[0];
 
         if (href === currentPage || (currentPage === "" && href === "index.html")) {

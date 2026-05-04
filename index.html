@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Internship E-Portfolio</title>
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="icon" href="assets/omsc.png" type="image/png">
   </head>
 
   <body>
@@ -145,12 +146,9 @@
       </section>
     </main>
 
+    <script src="assets/nav.js"></script>
     <script>
-      fetch("nav.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("nav-placeholder").innerHTML = data;
-        });
+      loadNav();
 
       document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener("click", function (e) {

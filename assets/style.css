@@ -1344,6 +1344,7 @@ section {
 
 .report-photos {
   display: grid;
+  align-content: center;
   min-height: 250px;
   padding: 8px;
   gap: 8px;
@@ -1351,8 +1352,8 @@ section {
 
 .report-photos img {
   width: 100%;
-  height: 100%;
-  min-height: 112px;
+  height: 118px;
+  min-height: 0;
   object-fit: cover;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -1360,6 +1361,16 @@ section {
 
 .collage-four {
   grid-template-columns: repeat(2, 1fr);
+}
+
+.collage-3,
+.collage-4,
+.collage-5 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.collage-5 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .document-grid,
@@ -2497,8 +2508,15 @@ section {
   }
 
   .report-photos,
+  .collage-3,
+  .collage-4,
+  .collage-5,
   .collage-four {
     grid-template-columns: 1fr;
+  }
+
+  .report-photos img {
+    height: 160px;
   }
 
   .up-button {
