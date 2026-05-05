@@ -11,16 +11,13 @@
   <body class="appendix-body">
     <div id="nav-placeholder"></div>
 
-    <main class="appendix-page-modern">
-      <section class="appendix-modern-hero">
-        <div class="appendix-hero-title">
-          <span class="appendix-hero-badge">CAST OJT</span>
-          <h1>Supporting Documents</h1>
-        </div>
+    <main class="intro-page appendix-page-modern">
+      <section class="intro-hero appendix-modern-hero">
+        <h1 class="intro-title">APPENDICES</h1>
         <p>
           Supporting documents for the CAST Student Internship Program arranged
-          from Appendix A to Appendix R. Select an appendix to preview its
-          document.
+          from Appendix A to Appendix R. Each card includes a brief description
+          and a direct preview of the document.
         </p>
         <div class="appendix-hero-stats">
           <span id="appendix-total-count">18 appendices</span>
@@ -28,63 +25,11 @@
         </div>
       </section>
 
-      <section class="appendix-two-column" aria-label="Appendices viewer">
-        <aside class="appendix-list-panel" aria-label="Appendix list">
-          <div class="appendix-list-heading">
-            <span>Appendix List</span>
-            <h2>A-R Documents</h2>
-          </div>
-          <div class="appendix-list-buttons" id="appendix-list"></div>
-        </aside>
-
-        <section class="appendix-viewer-panel" aria-label="Selected appendix">
-          <div class="appendix-viewer-title">
-            <span id="appendix-viewer-kicker">Appendix A</span>
-            <h2 id="appendix-viewer-title">
-              Evaluation Form (Registrar's Office)
-            </h2>
-          </div>
-
-          <div class="appendix-viewer-stage">
-            <button
-              class="appendix-page-arrow"
-              id="appendix-prev"
-              type="button"
-              aria-label="Previous page"
-            >
-              &lsaquo;
-            </button>
-
-            <div class="appendix-image-frame">
-              <img
-                id="appendix-viewer-image"
-                src="assets/Scanned%20picsss/Evaluation%20form.jpeg"
-                alt="Evaluation Form preview"
-                tabindex="0"
-              />
-              <div class="appendix-pending-state" id="appendix-pending" hidden>
-                <strong>DOC</strong>
-                <p>This document is pending. Check back soon.</p>
-              </div>
-              <article class="appendix-text-document" id="appendix-text-document" hidden></article>
-            </div>
-
-            <button
-              class="appendix-page-arrow"
-              id="appendix-next"
-              type="button"
-              aria-label="Next page"
-            >
-              &rsaquo;
-            </button>
-          </div>
-
-          <div class="appendix-viewer-footer">
-            <span id="appendix-page-label" aria-live="polite">Evaluation Form</span>
-            <span id="appendix-page-count">1 / 1</span>
-          </div>
-        </section>
-      </section>
+      <section
+        class="appendix-card-grid"
+        id="appendix-list"
+        aria-label="Appendices document cards"
+      ></section>
 
       <p class="appendix-footer-note">
         All appendices related to the CAST Student Internship Program.
@@ -103,7 +48,29 @@
           &times;
         </button>
         <h2></h2>
-        <img src="" alt="" />
+        <div class="appendix-preview-body">
+          <img src="" alt="" />
+          <article class="appendix-preview-text" hidden></article>
+        </div>
+        <div class="appendix-preview-controls">
+          <button
+            class="appendix-modal-arrow"
+            id="appendix-modal-prev"
+            type="button"
+            aria-label="Previous page"
+          >
+            &lsaquo;
+          </button>
+          <span id="appendix-modal-page" aria-live="polite">1 / 1</span>
+          <button
+            class="appendix-modal-arrow"
+            id="appendix-modal-next"
+            type="button"
+            aria-label="Next page"
+          >
+            &rsaquo;
+          </button>
+        </div>
       </div>
     </div>
 
@@ -342,22 +309,39 @@
       const list = document.getElementById("appendix-list");
       const totalCount = document.getElementById("appendix-total-count");
       const completeCount = document.getElementById("appendix-complete-count");
-      const viewerKicker = document.getElementById("appendix-viewer-kicker");
-      const viewerTitle = document.getElementById("appendix-viewer-title");
-      const viewerImage = document.getElementById("appendix-viewer-image");
-      const pendingState = document.getElementById("appendix-pending");
-      const textDocument = document.getElementById("appendix-text-document");
-      const prevButton = document.getElementById("appendix-prev");
-      const nextButton = document.getElementById("appendix-next");
-      const pageLabel = document.getElementById("appendix-page-label");
-      const pageCount = document.getElementById("appendix-page-count");
       const modal = document.querySelector(".appendix-preview-modal");
       const modalTitle = modal.querySelector("h2");
       const modalImage = modal.querySelector("img");
+      const modalText = modal.querySelector(".appendix-preview-text");
       const modalClose = modal.querySelector(".appendix-preview-close");
+      const modalPrev = document.getElementById("appendix-modal-prev");
+      const modalNext = document.getElementById("appendix-modal-next");
+      const modalPage = document.getElementById("appendix-modal-page");
 
       let activeAppendixIndex = 0;
       let activePageIndex = 0;
+      let lastPreviewTrigger = null;
+
+      const appendixDescriptions = {
+        A: "Registrar evaluation document used to assess internship readiness and requirements.",
+        B: "Validated registration record confirming enrollment for the internship period.",
+        C: "Identification documents submitted as part of the OJT requirement set.",
+        D: "Signed consent form confirming parental approval for internship participation.",
+        E: "Medical and dental certification showing student fitness for training.",
+        F: "Good moral character certificate from the school.",
+        G: "Formal application letter for the on-the-job training placement.",
+        H: "School endorsement letter addressed to the placement agency.",
+        I: "Memorandum of Agreement between the school and training agency.",
+        J: "Monthly time card records documenting attendance and rendered hours.",
+        K: "Completion certificate issued after finishing the required training hours.",
+        L: "Agency clearance confirming fulfilled responsibilities during the placement.",
+        M: "Performance rating sheet evaluating internship output and work conduct.",
+        N: "Photos documenting attendance during the pre-service seminar.",
+        O: "Photo documentation of office work activities throughout the training period.",
+        P: "CAST Student Internship ethics guide and professional conduct standards.",
+        Q: "Curriculum vitae summarizing personal, academic, and professional information.",
+        R: "Portfolio evaluation forms used for final internship assessment.",
+      };
 
       const completedAppendices = appendices.filter(
         (appendix) => appendix.pages.length > 0,
@@ -368,99 +352,100 @@
 
       function renderList() {
         appendices.forEach((appendix, index) => {
-          const button = document.createElement("button");
-          button.className = "appendix-list-item";
-          button.type = "button";
-          button.setAttribute("aria-label", `Open Appendix ${appendix.letter}: ${appendix.title}`);
-          button.innerHTML = `
-            <span>Appendix ${appendix.letter}</span>
-            <strong>${appendix.title}</strong>
+          const hasPages = appendix.pages.length > 0;
+          const firstPage = hasPages ? appendix.pages[0] : null;
+          const isTextOnly = hasPages && firstPage[1] === "text";
+          const thumbSrc = hasPages && !isTextOnly ? firstPage[1] : "";
+          const pageCountLabel =
+            appendix.pages.length === 1 ? "1 page" : `${appendix.pages.length} pages`;
+          const card = document.createElement("article");
+          card.className = "appendix-card";
+          card.tabIndex = hasPages ? 0 : -1;
+          card.setAttribute(
+            "aria-label",
+            hasPages
+              ? `View Appendix ${appendix.letter}: ${appendix.title}`
+              : `Appendix ${appendix.letter}: ${appendix.title} is pending`,
+          );
+          card.innerHTML = `
+            <div class="appendix-thumb">
+              ${
+                thumbSrc
+                  ? `<img src="${thumbSrc}" alt="${appendix.title} thumbnail" loading="lazy" />`
+                  : `<div class="appendix-thumb-placeholder"><strong>${isTextOnly ? "TXT" : "DOC"}</strong></div>`
+              }
+              <div class="appendix-thumb-overlay">
+                <span class="appendix-zoom-icon" aria-hidden="true">+</span>
+                <strong>${hasPages ? "Click to view" : "Pending"}</strong>
+              </div>
+            </div>
+
+            <div class="appendix-card-content">
+              <div class="appendix-card-topline">
+                <span>Appendix ${appendix.letter}</span>
+                <small>${hasPages ? pageCountLabel : "Pending"}</small>
+              </div>
+              <h2>${appendix.title}</h2>
+              <p>${appendixDescriptions[appendix.letter]}</p>
+              <button class="appendix-card-button" type="button" ${hasPages ? "" : "disabled"}>
+                ${hasPages ? "View Document" : "Pending"}
+              </button>
+            </div>
           `;
-          button.addEventListener("click", () => selectAppendix(index));
-          list.appendChild(button);
+
+          const button = card.querySelector(".appendix-card-button");
+          card.addEventListener("click", () => openPreview(index, card));
+          card.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              openPreview(index, card);
+            }
+          });
+          button.addEventListener("click", (event) => {
+            event.stopPropagation();
+            openPreview(index, button);
+          });
+          list.appendChild(card);
         });
       }
 
       function updateListState() {
-        document.querySelectorAll(".appendix-list-item").forEach((button, index) => {
-          button.classList.toggle("active", index === activeAppendixIndex);
-          if (index === activeAppendixIndex) {
-            button.setAttribute("aria-current", "true");
-          } else {
-            button.removeAttribute("aria-current");
-          }
+        document.querySelectorAll(".appendix-card").forEach((card, index) => {
+          card.classList.toggle("active", index === activeAppendixIndex);
         });
       }
 
-      function updateViewer() {
+      function renderPreviewPage() {
         const appendix = appendices[activeAppendixIndex];
-        const hasPages = appendix.pages.length > 0;
-        const page = hasPages ? appendix.pages[activePageIndex] : null;
-        const isTextPage = hasPages && page[1] === "text";
+        const page = appendix.pages[activePageIndex];
+        const isTextPage = page[1] === "text";
 
-        viewerKicker.textContent = `Appendix ${appendix.letter}`;
-        viewerTitle.textContent = appendix.title;
-        viewerImage.hidden = !hasPages || isTextPage;
-        viewerImage.tabIndex = hasPages && !isTextPage ? 0 : -1;
-        pendingState.hidden = hasPages;
-        textDocument.hidden = !isTextPage;
-        viewerImage.style.display = hasPages && !isTextPage ? "" : "none";
-        pendingState.style.display = hasPages ? "none" : "grid";
-        textDocument.style.display = isTextPage ? "block" : "none";
-        prevButton.disabled = !hasPages || appendix.pages.length < 2;
-        nextButton.disabled = !hasPages || appendix.pages.length < 2;
+        modalTitle.textContent = `Appendix ${appendix.letter}: ${appendix.title}`;
+        modalImage.hidden = isTextPage;
+        modalText.hidden = !isTextPage;
 
         if (isTextPage) {
-          viewerImage.removeAttribute("src");
-          textDocument.innerHTML = page[2];
-          pageLabel.textContent = page[0];
-          pageCount.textContent = `${activePageIndex + 1} / ${appendix.pages.length}`;
-        } else if (hasPages) {
-          textDocument.innerHTML = "";
-          viewerImage.src = page[1];
-          viewerImage.alt = `${appendix.title} preview`;
-          pageLabel.textContent = page[0];
-          pageCount.textContent = `${activePageIndex + 1} / ${appendix.pages.length}`;
+          modalImage.removeAttribute("src");
+          modalText.innerHTML = page[2];
         } else {
-          viewerImage.removeAttribute("src");
-          textDocument.innerHTML = "";
-          pageLabel.textContent = "This document is pending. Check back soon.";
-          pageCount.textContent = "0 / 0";
+          modalText.innerHTML = "";
+          modalImage.src = page[1];
+          modalImage.alt = `${appendix.title} - ${page[0]}`;
         }
 
+        modalPage.textContent = `${activePageIndex + 1} / ${appendix.pages.length}`;
+        modalPrev.disabled = appendix.pages.length < 2;
+        modalNext.disabled = appendix.pages.length < 2;
         updateListState();
       }
 
-      function selectAppendix(index, shouldFocusButton = false) {
+      function openPreview(index, trigger) {
+        const appendix = appendices[index];
+        if (appendix.pages.length === 0) return;
         activeAppendixIndex = index;
         activePageIndex = 0;
-        updateViewer();
-        document.querySelectorAll(".appendix-list-item")[activeAppendixIndex]
-          ?.scrollIntoView({ block: "nearest" });
-        if (shouldFocusButton) {
-          document.querySelectorAll(".appendix-list-item")[activeAppendixIndex]?.focus();
-        }
-      }
-
-      function changePage(direction) {
-        const pages = appendices[activeAppendixIndex].pages;
-        if (pages.length < 2) return;
-        activePageIndex = (activePageIndex + direction + pages.length) % pages.length;
-        viewerImage.classList.remove("show");
-        window.requestAnimationFrame(() => {
-          updateViewer();
-          viewerImage.classList.add("show");
-        });
-      }
-
-      function openPreview() {
-        const appendix = appendices[activeAppendixIndex];
-        if (appendix.pages.length === 0) return;
-        const page = appendix.pages[activePageIndex];
-        if (page[1] === "text") return;
-        modalTitle.textContent = `Appendix ${appendix.letter}: ${page[0]}`;
-        modalImage.src = page[1];
-        modalImage.alt = `${appendix.title} preview`;
+        lastPreviewTrigger = trigger;
+        renderPreviewPage();
         modal.classList.add("show");
         modal.setAttribute("aria-hidden", "false");
       }
@@ -469,75 +454,41 @@
         modal.classList.remove("show");
         modal.setAttribute("aria-hidden", "true");
         modalImage.src = "";
-        viewerImage.focus();
+        modalText.innerHTML = "";
+        lastPreviewTrigger?.focus();
       }
 
-      function changeAppendix(direction) {
-        const nextIndex =
-          (activeAppendixIndex + direction + appendices.length) % appendices.length;
-        selectAppendix(nextIndex, true);
+      function changeModalPage(direction) {
+        const pages = appendices[activeAppendixIndex].pages;
+        if (pages.length < 2) return;
+        activePageIndex = (activePageIndex + direction + pages.length) % pages.length;
+        renderPreviewPage();
       }
 
-      function selectFirstAppendix() {
-        selectAppendix(0, true);
-      }
-
-      function selectLastAppendix() {
-        selectAppendix(appendices.length - 1, true);
-      }
-
-      prevButton.addEventListener("click", () => changePage(-1));
-      nextButton.addEventListener("click", () => changePage(1));
-      viewerImage.addEventListener("click", openPreview);
-      viewerImage.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          openPreview();
-        }
-      });
+      modalPrev.addEventListener("click", () => changeModalPage(-1));
+      modalNext.addEventListener("click", () => changeModalPage(1));
       modalClose.addEventListener("click", closePreview);
       modal.addEventListener("click", (event) => {
         if (event.target === modal) closePreview();
       });
       window.addEventListener("keydown", (event) => {
         const modalOpen = modal.classList.contains("show");
+        if (!modalOpen) return;
 
-        if (event.key === "Escape" && modalOpen) {
+        if (event.key === "Escape") {
           closePreview();
-          return;
         }
-
-        if (modalOpen) return;
-
         if (event.key === "ArrowLeft") {
           event.preventDefault();
-          changePage(-1);
+          changeModalPage(-1);
         }
         if (event.key === "ArrowRight") {
           event.preventDefault();
-          changePage(1);
-        }
-        if (event.key === "ArrowUp") {
-          event.preventDefault();
-          changeAppendix(-1);
-        }
-        if (event.key === "ArrowDown") {
-          event.preventDefault();
-          changeAppendix(1);
-        }
-        if (event.key === "Home") {
-          event.preventDefault();
-          selectFirstAppendix();
-        }
-        if (event.key === "End") {
-          event.preventDefault();
-          selectLastAppendix();
+          changeModalPage(1);
         }
       });
 
       renderList();
-      updateViewer();
-      viewerImage.classList.add("show");
     </script>
 
     <script src="assets/nav.js"></script>

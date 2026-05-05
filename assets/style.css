@@ -230,7 +230,8 @@ section {
   color: #f59e0b;
 }
 
-.site-footer {
+.site-
+footer {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
   padding: 24px 0 36px;
@@ -2821,8 +2822,14 @@ section {
   .analysis-grid,
   .dtr-image-pair,
   .assessment-pages,
+  .assessment-summary,
+  .rating-list,
   .appendix-two-column {
     grid-template-columns: 1fr;
+  }
+
+  .assessment-summary {
+    padding: 24px;
   }
 
   .appendix-list-panel {
@@ -2924,4 +2931,125 @@ section {
   .appendix-preview-modal {
     padding: 14px;
   }
+}
+
+.assessment-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.9fr);
+  gap: 22px;
+  margin-top: 30px;
+  padding: clamp(24px, 4vw, 34px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.045)),
+    rgba(8, 18, 38, 0.72);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+  align-items: start;
+}
+
+.ratings-overview {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  min-width: 0;
+}
+
+.ratings-overview .chapter-kicker {
+  margin: 0;
+  color: #f59e0b;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.ratings-overview h2 {
+  color: #ffffff;
+  font-size: clamp(30px, 3.7vw, 44px);
+  line-height: 1.15;
+}
+
+.rating-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.rating-list div,
+.overall-score-card,
+.comments-card,
+.rated-by-card {
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.04)),
+    rgba(9, 26, 52, 0.42);
+  padding: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.rating-list div {
+  min-height: 145px;
+}
+
+.rating-list span,
+.overall-score-card span {
+  color: #f59e0b;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.rating-list strong {
+  display: block;
+  margin-top: 8px;
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.rating-list p,
+.overall-score-card p,
+.comments-card p,
+.rated-by-card li {
+  color: #d1d5db;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.overall-score-card {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.overall-score-card strong {
+  color: #ffffff;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.15;
+}
+
+.comments-card h3,
+.rated-by-card h3 {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.comments-card {
+  display: grid;
+  gap: 10px;
+}
+
+.rated-by-card ul {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  list-style: none;
+}
+
+.rated-by-card strong {
+  color: #ffffff;
 }

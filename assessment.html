@@ -5,70 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assessment</title>
     <link rel="stylesheet" href="assets/style.css" />
-    <link rel="icon" href="assets/omsc.png" type="image/png">
+    <link rel="icon" href="assets/omsc.png" type="image/png" />
   </head>
 
-  <body class="assessment-body">
+  <body>
     <div id="nav-placeholder"></div>
 
-    <main class="assessment-page">
-      <section class="assessment-hero">
-        <span>Chapter IV</span>
-        <h1>Assessment</h1>
+    <main class="intro-page assessment-page">
+      <section class="intro-hero assessment-hero">
+        <p class="section-label">Chapter IV</p>
+        <h1 class="intro-title">ASSESSMENT</h1>
         <p>
           Student internship evaluation form for the BSIT On-the-Job Training
           portfolio.
         </p>
       </section>
 
-      <section class="assessment-document">
-        <div class="assessment-document-heading">
-          <span>Student Internship Form</span>
-          <h2>On-the-Job Training Evaluation</h2>
-          <p>
-            Click any page to open a larger preview.
-          </p>
+      <section class="intro-tabs assessment-tabs">
+        <input type="radio" name="assessment" id="tab-a" checked />
+
+        <div class="tab-buttons">
+          <label for="tab-a">Student Internship Evaluation Form</label>
         </div>
 
-        <div class="assessment-pages">
-          <button
-            class="assessment-page-card"
-            type="button"
-            data-title="Student Internship Evaluation Form - Page 1"
-            data-src="assets/Scanned%20picsss/student%20internship%20evaluation%20form.jpg"
-          >
-            <img
-              src="assets/Scanned%20picsss/student%20internship%20evaluation%20form.jpg"
-              alt="Student Internship Evaluation Form page 1"
-            />
-            <span>Page 1</span>
-          </button>
+        <div class="tab-content content-a">
+          <section class="intro-card assessment-document">
+            <div class="assessment-document-heading">
+              <span>Student Internship Form</span>
+              <h2>On-the-Job Training Evaluation</h2>
+              <p>Click any page to open a larger preview.</p>
+            </div>
 
-          <button
-            class="assessment-page-card"
-            type="button"
-            data-title="Student Internship Evaluation Form - Page 2"
-            data-src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-2.jpg"
-          >
-            <img
-              src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-2.jpg"
-              alt="Student Internship Evaluation Form page 2"
-            />
-            <span>Page 2</span>
-          </button>
+            <div class="assessment-pages">
+              <button
+                class="assessment-page-card"
+                type="button"
+                data-title="Student Internship Evaluation Form - Page 1"
+                data-src="assets/Scanned%20picsss/student%20internship%20evaluation%20form.jpg"
+              >
+                <img
+                  src="assets/Scanned%20picsss/student%20internship%20evaluation%20form.jpg"
+                  alt="Student Internship Evaluation Form page 1"
+                />
+                <span>Page 1</span>
+              </button>
 
-          <button
-            class="assessment-page-card"
-            type="button"
-            data-title="Student Internship Evaluation Form - Page 3"
-            data-src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-3.jpg"
-          >
-            <img
-              src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-3.jpg"
-              alt="Student Internship Evaluation Form page 3"
-            />
-            <span>Page 3</span>
-          </button>
+              <button
+                class="assessment-page-card"
+                type="button"
+                data-title="Student Internship Evaluation Form - Page 2"
+                data-src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-2.jpg"
+              >
+                <img
+                  src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-2.jpg"
+                  alt="Student Internship Evaluation Form page 2"
+                />
+                <span>Page 2</span>
+              </button>
+
+              <button
+                class="assessment-page-card"
+                type="button"
+                data-title="Student Internship Evaluation Form - Page 3"
+                data-src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-3.jpg"
+              >
+                <img
+                  src="assets/Scanned%20picsss/student%20internship%20evaluation%20form-3.jpg"
+                  alt="Student Internship Evaluation Form page 3"
+                />
+                <span>Page 3</span>
+              </button>
+            </div>
+
+            <section
+              class="assessment-summary reveal"
+              aria-label="Performance evaluation summary"
+            >
+              <article class="ratings-overview">
+                <p class="chapter-kicker">Performance Evaluation Summary</p>
+                <h2>Ratings Overview</h2>
+                <div class="rating-list">
+                  <div>
+                    <span>SR</span>
+                    <strong>Student Self-Rating</strong>
+                    <p>Rating: Mostly 5 - Excellent</p>
+                  </div>
+                  <div>
+                    <span>PR</span>
+                    <strong>Peer Rating</strong>
+                    <p>Rating: Mostly 5 - Excellent</p>
+                  </div>
+                  <div>
+                    <span>SICR</span>
+                    <strong>Student Internship Coordinator Rating</strong>
+                    <p>Rating: Not visibly filled / minimal data</p>
+                  </div>
+                  <div>
+                    <span>ASR</span>
+                    <strong>Agency Supervisor Rating</strong>
+                    <p>Rating: Mostly 5, with a few 4s - Very Satisfactory</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="overall-score-card">
+                <span>Overall Rating</span>
+                <strong>Very Satisfactory to Excellent</strong>
+              </article>
+
+              <article class="comments-card">
+                <h3>General Comments</h3>
+                <p>
+                  The evaluation results show that the student consistently
+                  performed at an excellent level throughout the internship. The
+                  student demonstrated strong technical skills, professionalism,
+                  and the ability to complete tasks efficiently with minimal
+                  supervision. Additionally, the student maintained positive
+                  working relationships, followed workplace rules, and showed
+                  initiative and adaptability in different situations. Overall,
+                  the performance reflects a high level of competence and
+                  readiness for professional work.
+                </p>
+              </article>
+
+              <article class="rated-by-card">
+                <h3>Rated By</h3>
+                <ul>
+                  <li>
+                    <strong>Student Intern:</strong> Mary Claire S. Valaquio
+                  </li>
+                  <li><strong>Peer:</strong> April Mea Estraña Ciriaco</li>
+                  <li>
+                    <strong>Internship Coordinator:</strong> Letta Linda L.
+                    Pelayo, MAIE
+                  </li>
+                  <li>
+                    <strong>Agency Supervisor:</strong> John Patrick G. Loyzaga
+                  </li>
+                </ul>
+              </article>
+            </section>
+          </section>
         </div>
       </section>
     </main>
