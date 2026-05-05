@@ -60,11 +60,13 @@
                 id="appendix-viewer-image"
                 src="assets/Scanned%20picsss/Evaluation%20form.jpeg"
                 alt="Evaluation Form preview"
+                tabindex="0"
               />
               <div class="appendix-pending-state" id="appendix-pending" hidden>
                 <strong>DOC</strong>
                 <p>This document is pending. Check back soon.</p>
               </div>
+              <article class="appendix-text-document" id="appendix-text-document" hidden></article>
             </div>
 
             <button
@@ -78,7 +80,7 @@
           </div>
 
           <div class="appendix-viewer-footer">
-            <span id="appendix-page-label">Evaluation Form</span>
+            <span id="appendix-page-label" aria-live="polite">Evaluation Form</span>
             <span id="appendix-page-count">1 / 1</span>
           </div>
         </section>
@@ -88,6 +90,8 @@
         All appendices related to the CAST Student Internship Program.
       </p>
     </main>
+
+    <div id="footer-placeholder"></div>
 
     <div class="appendix-preview-modal" aria-hidden="true">
       <div class="appendix-preview-dialog" role="dialog" aria-modal="true">
@@ -104,11 +108,55 @@
     </div>
 
     <script>
-      fetch("nav.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("nav-placeholder").innerHTML = data;
-        });
+      const officeWorkPages = [
+        ["Office Works - Feb 2-6", "assets/Pictures/feb2-6.jpg"],
+        ["Office Works - Feb 2-6 Photo 2", "assets/Pictures/2%20feb2-6.jpg"],
+        ["Office Works - Feb 2-6 Photo 3", "assets/Pictures/3%20feb%202-6.jpg"],
+        ["Office Works - Feb 9-13 Photo 1", "assets/Pictures/1%20feb%209-13.jpg"],
+        ["Office Works - Feb 9-13 Photo 2", "assets/Pictures/2%20feb%209-13.jpg"],
+        ["Office Works - Feb 9-13 Photo 3", "assets/Pictures/3%20feb%209-13.jpg"],
+        ["Office Works - Feb 9-13 Photo 4", "assets/Pictures/4%20feb9-13.jpg"],
+        ["Office Works - Feb 16-20 Photo 1", "assets/Pictures/feb%2016-20.jpg"],
+        ["Office Works - Feb 16-20 Photo 2", "assets/Pictures/feb%2016-20%20(2).jpg"],
+        ["Office Works - Feb 16-20 Photo 3", "assets/Pictures/feb%2016-20%20(3).jpg"],
+        ["Office Works - Feb 16-20 Photo 4", "assets/Pictures/feb%2016-20%20(4).jpg"],
+        ["Office Works - Feb 16-20 Photo 5", "assets/Pictures/feb%2016-20%20(5).jpg"],
+        ["Office Works - Feb 23-27 Photo 1", "assets/Pictures/feb%2023-27.jpg"],
+        ["Office Works - Feb 23-27 Photo 2", "assets/Pictures/feb%2023-27%20(2).jpg"],
+        ["Office Works - Feb 23-27 Photo 3", "assets/Pictures/feb%2023-27%20(3).jpg"],
+        ["Office Works - Feb 23-27 Photo 4", "assets/Pictures/feb%2023-27%20(4).jpg"],
+        ["Office Works - Feb 23-27 Photo 5", "assets/Pictures/feb%2023-27%20(5).jpg"],
+        ["Office Works - March 2-6 Photo 1", "assets/Pictures/march%202-6.png"],
+        ["Office Works - March 2-6 Photo 2", "assets/Pictures/march%202-6(2).png"],
+        ["Office Works - March 2-6 Photo 3", "assets/Pictures/march%202-6(3).png"],
+        ["Office Works - March 2-6 Photo 4", "assets/Pictures/march%202-6(4).png"],
+        ["Office Works - March 9-13 Photo 1", "assets/Pictures/march%209-13.png"],
+        ["Office Works - March 9-13 Photo 2", "assets/Pictures/march%209-13(2).png"],
+        ["Office Works - March 9-13 Photo 3", "assets/Pictures/march%209-13(3).png"],
+        ["Office Works - March 9-13 Photo 4", "assets/Pictures/march%209-13(4).png"],
+        ["Office Works - March 16-20 Photo 1", "assets/Pictures/march%2016-20.png"],
+        ["Office Works - March 16-20 Photo 2", "assets/Pictures/march%2016-20(2).png"],
+        ["Office Works - March 16-20 Photo 3", "assets/Pictures/march%2016-20(3).png"],
+        ["Office Works - March 23-27 Photo 1", "assets/Pictures/march%2023-27.png"],
+        ["Office Works - March 23-27 Photo 2", "assets/Pictures/march%2023-27(2).png"],
+        ["Office Works - March 23-27 Photo 3", "assets/Pictures/march%2023-27(3).png"],
+        ["Office Works - April 6-11 Photo 1", "assets/Pictures/april%206-11.png"],
+        ["Office Works - April 6-11 Photo 2", "assets/Pictures/april%206-11(2).png"],
+        ["Office Works - April 6-11 Photo 3", "assets/Pictures/april%206-11(3).png"],
+        ["Office Works - April 6-11 Photo 4", "assets/Pictures/april%206-11(4).png"],
+        ["Office Works - April 6-11 Photo 5", "assets/Pictures/april%206-11%20(5).png"],
+        ["Office Works - April 13-17 Photo 1", "assets/Pictures/april13-17.jpg"],
+        ["Office Works - April 13-17 Photo 2", "assets/Pictures/april%2013-17(2).png"],
+        ["Office Works - April 13-17 Photo 3", "assets/Pictures/april%2013-17(3).png"],
+        ["Office Works - April 20-24 Photo 1", "assets/Pictures/april%2020-24.png"],
+        ["Office Works - April 20-24 Photo 2", "assets/Pictures/april%2020-24(2).png"],
+        ["Office Works - April 20-24 Photo 3", "assets/Pictures/april%2020-24(3).png"],
+        ["Office Works - April 20-24 Photo 4", "assets/Pictures/april%2020-24(5).jpg"],
+        ["Office Works - April 27-May 1 Photo 1", "assets/Pictures/april%2027-may%201.png"],
+        ["Office Works - April 27-May 1 Photo 2", "assets/Pictures/april%2027-may%201(2).png"],
+        ["Office Works - April 27-May 1 Photo 3", "assets/Pictures/april%2027-may%201(3).png"],
+        ["Office Works - April 27-May 1 Photo 4", "assets/Pictures/april%2027-may%201(4).png"],
+      ];
 
       const appendices = [
         {
@@ -159,7 +207,11 @@
             ["Good Moral Certificate", "assets/Scanned%20picsss/Good%20Moral.jpg"],
           ],
         },
-        { letter: "G", title: "Application Letter", pages: [] },
+        {
+          letter: "G",
+          title: "Application Letter",
+          pages: [["Application Letter", "assets/application%20form.jpg"]],
+        },
         {
           letter: "H",
           title: "Endorsement Letter",
@@ -197,26 +249,80 @@
         {
           letter: "K",
           title: "Certificate of Completion (Placement Agency/Office)",
-          pages: [],
+          pages: [
+            [
+              "Certificate of Completion",
+              "assets/cert%20of%20completion.jpg",
+            ],
+          ],
         },
         {
           letter: "L",
           title: "Certificate of Clearance (Placement Agency/Office)",
-          pages: [],
+          pages: [
+            [
+              "Certificate of Clearance",
+              "assets/cert%20of%20clearance.jpg",
+            ],
+          ],
         },
         {
           letter: "M",
           title: "Performance/Proficiency Rating Sheet (Placement Agency/Office)",
-          pages: [],
+          pages: [
+            [
+              "Performance/Proficiency Rating Sheet",
+              "assets/performance%20rating%20sheet.jpg",
+            ],
+          ],
         },
-        { letter: "N", title: "Pictures during Pre-service Seminar", pages: [] },
-        { letter: "O", title: "Pictures during Office works", pages: [] },
-        { letter: "P", title: "Code of Ethics for CAST Student Internship", pages: [] },
-        { letter: "Q", title: "Curriculum Vitae", pages: [] },
+        {
+          letter: "N",
+          title: "Pictures during Pre-service Seminar",
+          pages: [
+            ["Pre-service Seminar", "assets/seminar.jpg"],
+            ["Pre-service Seminar - Page 2", "assets/Seminar1.png"],
+          ],
+        },
+        { letter: "O", title: "Pictures during Office works", pages: officeWorkPages },
+        {
+          letter: "P",
+          title: "Code of Ethics for CAST Student Internship",
+          pages: [
+            [
+              "Code of Ethics",
+              "text",
+              `
+                <p>I will use my special knowledge for the benefit of the public. I will serve employees and clients with integrity, subject to an overriding responsibility to the public interest, and I will strive to enhance the competence and prestige of the profession. By these means:</p>
+                <ol>
+                  <li>I will promote public knowledge understanding and appreciation of information technology.</li>
+                  <li>I will consider the general welfare and public good in the performance of my work.</li>
+                  <li>I will advertise goods or professional services in a clear and truthful manner.</li>
+                  <li>I will comply and strictly abide by the intellectual property laws, patent laws and other related laws on respect of information technology.</li>
+                  <li>I will accept full responsibility for the work undertaken and utilize skills with competence and professionalism.</li>
+                  <li>I will make truthful statement on my areas of competence as well as the capabilities and qualities of my products or services.</li>
+                  <li>I will not disclose any confidential information obtained in the course of professional duties without the consent of the parties concerned, except when required by law.</li>
+                  <li>I will try to attain the highest quality in both the products and services that I offer.</li>
+                  <li>I will not knowingly participate in the development of information technology system that promotes the commission of proud and other unlawful acts.</li>
+                  <li>I will uphold and improve the IT profession standard through continuing professional development in order to enhance the IT professionals.</li>
+                </ol>
+              `,
+            ],
+          ],
+        },
+        {
+          letter: "Q",
+          title: "Curriculum Vitae",
+          pages: [["Curriculum Vitae", "assets/curriculum%20vitae.png"]],
+        },
         {
           letter: "R",
           title: "On-the-Job Training Portfolio Evaluation Form",
           pages: [
+            [
+              "OJT Portfolio Evaluation Form",
+              "assets/ojt%20portfolio%20evaluation.jpg",
+            ],
             [
               "Portfolio Evaluation Form - Page 1",
               "assets/Scanned%20picsss/student%20internship%20evaluation%20form.jpg",
@@ -240,6 +346,7 @@
       const viewerTitle = document.getElementById("appendix-viewer-title");
       const viewerImage = document.getElementById("appendix-viewer-image");
       const pendingState = document.getElementById("appendix-pending");
+      const textDocument = document.getElementById("appendix-text-document");
       const prevButton = document.getElementById("appendix-prev");
       const nextButton = document.getElementById("appendix-next");
       const pageLabel = document.getElementById("appendix-page-label");
@@ -264,6 +371,7 @@
           const button = document.createElement("button");
           button.className = "appendix-list-item";
           button.type = "button";
+          button.setAttribute("aria-label", `Open Appendix ${appendix.letter}: ${appendix.title}`);
           button.innerHTML = `
             <span>Appendix ${appendix.letter}</span>
             <strong>${appendix.title}</strong>
@@ -276,6 +384,11 @@
       function updateListState() {
         document.querySelectorAll(".appendix-list-item").forEach((button, index) => {
           button.classList.toggle("active", index === activeAppendixIndex);
+          if (index === activeAppendixIndex) {
+            button.setAttribute("aria-current", "true");
+          } else {
+            button.removeAttribute("aria-current");
+          }
         });
       }
 
@@ -283,23 +396,34 @@
         const appendix = appendices[activeAppendixIndex];
         const hasPages = appendix.pages.length > 0;
         const page = hasPages ? appendix.pages[activePageIndex] : null;
+        const isTextPage = hasPages && page[1] === "text";
 
         viewerKicker.textContent = `Appendix ${appendix.letter}`;
         viewerTitle.textContent = appendix.title;
-        viewerImage.hidden = !hasPages;
+        viewerImage.hidden = !hasPages || isTextPage;
+        viewerImage.tabIndex = hasPages && !isTextPage ? 0 : -1;
         pendingState.hidden = hasPages;
-        viewerImage.style.display = hasPages ? "" : "none";
+        textDocument.hidden = !isTextPage;
+        viewerImage.style.display = hasPages && !isTextPage ? "" : "none";
         pendingState.style.display = hasPages ? "none" : "grid";
+        textDocument.style.display = isTextPage ? "block" : "none";
         prevButton.disabled = !hasPages || appendix.pages.length < 2;
         nextButton.disabled = !hasPages || appendix.pages.length < 2;
 
-        if (hasPages) {
+        if (isTextPage) {
+          viewerImage.removeAttribute("src");
+          textDocument.innerHTML = page[2];
+          pageLabel.textContent = page[0];
+          pageCount.textContent = `${activePageIndex + 1} / ${appendix.pages.length}`;
+        } else if (hasPages) {
+          textDocument.innerHTML = "";
           viewerImage.src = page[1];
           viewerImage.alt = `${appendix.title} preview`;
           pageLabel.textContent = page[0];
           pageCount.textContent = `${activePageIndex + 1} / ${appendix.pages.length}`;
         } else {
           viewerImage.removeAttribute("src");
+          textDocument.innerHTML = "";
           pageLabel.textContent = "This document is pending. Check back soon.";
           pageCount.textContent = "0 / 0";
         }
@@ -307,10 +431,15 @@
         updateListState();
       }
 
-      function selectAppendix(index) {
+      function selectAppendix(index, shouldFocusButton = false) {
         activeAppendixIndex = index;
         activePageIndex = 0;
         updateViewer();
+        document.querySelectorAll(".appendix-list-item")[activeAppendixIndex]
+          ?.scrollIntoView({ block: "nearest" });
+        if (shouldFocusButton) {
+          document.querySelectorAll(".appendix-list-item")[activeAppendixIndex]?.focus();
+        }
       }
 
       function changePage(direction) {
@@ -328,6 +457,7 @@
         const appendix = appendices[activeAppendixIndex];
         if (appendix.pages.length === 0) return;
         const page = appendix.pages[activePageIndex];
+        if (page[1] === "text") return;
         modalTitle.textContent = `Appendix ${appendix.letter}: ${page[0]}`;
         modalImage.src = page[1];
         modalImage.alt = `${appendix.title} preview`;
@@ -339,19 +469,70 @@
         modal.classList.remove("show");
         modal.setAttribute("aria-hidden", "true");
         modalImage.src = "";
+        viewerImage.focus();
+      }
+
+      function changeAppendix(direction) {
+        const nextIndex =
+          (activeAppendixIndex + direction + appendices.length) % appendices.length;
+        selectAppendix(nextIndex, true);
+      }
+
+      function selectFirstAppendix() {
+        selectAppendix(0, true);
+      }
+
+      function selectLastAppendix() {
+        selectAppendix(appendices.length - 1, true);
       }
 
       prevButton.addEventListener("click", () => changePage(-1));
       nextButton.addEventListener("click", () => changePage(1));
       viewerImage.addEventListener("click", openPreview);
+      viewerImage.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openPreview();
+        }
+      });
       modalClose.addEventListener("click", closePreview);
       modal.addEventListener("click", (event) => {
         if (event.target === modal) closePreview();
       });
       window.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closePreview();
-        if (event.key === "ArrowLeft") changePage(-1);
-        if (event.key === "ArrowRight") changePage(1);
+        const modalOpen = modal.classList.contains("show");
+
+        if (event.key === "Escape" && modalOpen) {
+          closePreview();
+          return;
+        }
+
+        if (modalOpen) return;
+
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          changePage(-1);
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          changePage(1);
+        }
+        if (event.key === "ArrowUp") {
+          event.preventDefault();
+          changeAppendix(-1);
+        }
+        if (event.key === "ArrowDown") {
+          event.preventDefault();
+          changeAppendix(1);
+        }
+        if (event.key === "Home") {
+          event.preventDefault();
+          selectFirstAppendix();
+        }
+        if (event.key === "End") {
+          event.preventDefault();
+          selectLastAppendix();
+        }
       });
 
       renderList();
